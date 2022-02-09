@@ -9,8 +9,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-// const MyAppBar = ({ handleDrawerToggle }) => {
-const MyAppBar = () => {
+const MyAppBar = ({ handleDrawerToggle }) => {
   return (
     <AppBar
       sx={{
@@ -25,7 +24,7 @@ const MyAppBar = () => {
           color="inherit"
           aria-label="menu"
           sx={{ mr: 1, display: { xs: 'block', sm: 'none' } }}
-          // onClick={handleDrawerToggle}
+          onClick={handleDrawerToggle}
         >
           <MenuIcon />
         </IconButton>
