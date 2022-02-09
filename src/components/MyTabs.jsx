@@ -63,7 +63,6 @@ const MyTabs = () => {
             sx={{ height: 50 }}
             TabIndicatorProps={{
               sx: {
-                bgcolor: 'orange',
                 height: '8px',
               },
             }}
