@@ -1,9 +1,10 @@
 import React from 'react';
+import ChooseInput from './ChooseInput';
 
 const CategoriesTabPanel = () => {
   return (
     <>
-      <p>item2</p>
+      <ChooseInput />
     </>
   );
 };
