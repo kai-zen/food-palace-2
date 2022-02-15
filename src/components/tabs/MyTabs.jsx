@@ -6,6 +6,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { Toolbar } from '@mui/material';
 import SearchTabPanel from './serach-tab/SearchTabPanel';
+import CategoriesTabPanel from './categories-tab/CategoriesTabPanel';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -78,6 +79,13 @@ const MyTabs = () => {
         >
           <div value={currentActiveTab} index={0} className="search-tab-panel">
             <SearchTabPanel />
+          </div>
+          <div
+            value={currentActiveTab}
+            index={1}
+            className="categories-tab-panel"
+          >
+            <CategoriesTabPanel />
           </div>
           <TabPanel value={currentActiveTab} index={1}>
             Item Two

@@ -13,7 +13,7 @@ export default function SearchSingleCard() {
         display: 'flex',
         m: 3,
         width: { sm: '80%', md: '75%' },
-        maxWidth: '650px',
+        maxWidth: '600px',
         minWidth: '320px',
         justifyContent: 'space-between',
       }}
@@ -46,7 +46,7 @@ export default function SearchSingleCard() {
       </CardContent>
       <CardMedia
         component="img"
-        sx={{ width: 151, height: 151, border: '8px solid white' }}
+        sx={{ width: 136, height: 136, margin: '11px' }}
         image="./Images/bests-food-bkg.png"
         alt="Live from space album cover"
       />
