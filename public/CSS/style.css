@@ -1,0 +1,9 @@
+.search-tab-panel {
+    background-image: url('./../Images/search-food-bkg.jpg');
+    background-size: cover;
+    width: calc(100% - 48px);
+    height: calc(100vh - 162px);
+    padding: 24px;
+    position: relative;
+    overflow-y: scroll;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
-// import SearchInput from './SearchInput';
+import SearchInput from './SearchInput';
 // import SearchSingleCard from './SingleCard';
 
 const SearchTabPanel = () => {
   return (
     <>
-      //<SearchInput />
+      <SearchInput />
       //<SearchSingleCard />
     </>
   );
