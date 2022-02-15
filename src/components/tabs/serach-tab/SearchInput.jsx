@@ -22,12 +22,7 @@ export default function SearchInput() {
         placeholder="Search the food you want!"
       />
       <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-      <IconButton
-        type="submit"
-        sx={{ p: '10px' }}
-        aria-label="search"
-        color="primary"
-      >
+      <IconButton sx={{ p: '10px' }} aria-label="search" color="secondary">
         <SearchIcon />
       </IconButton>
     </Paper>
