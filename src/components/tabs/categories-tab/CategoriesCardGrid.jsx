@@ -4,38 +4,108 @@ import SingleCategoriesCard from './CategoriesCard';
 
 const CategoriesCardsGrid = () => {
   return (
-    <Grid container spacing={3} sx={{ mt: 3 }}>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+    <Grid
+      container
+      spacing={3}
+      sx={{ mt: 3, display: 'flex', justifyContent: 'center' }}
+    >
+      <Grid
+        item
+        xs={10}
+        md={6}
+        lg={3}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         <SingleCategoriesCard />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid
+        item
+        xs={10}
+        md={6}
+        lg={3}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         <SingleCategoriesCard />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid
+        item
+        xs={10}
+        md={6}
+        lg={3}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         <SingleCategoriesCard />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={3}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         <SingleCategoriesCard />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={3}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         <SingleCategoriesCard />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={3}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         <SingleCategoriesCard />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={3}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         <SingleCategoriesCard />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={3}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         <SingleCategoriesCard />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={3}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         <SingleCategoriesCard />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={3}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         <SingleCategoriesCard />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={3}
+        sx={{ display: 'flex', justifyContent: 'center' }}
+      >
         <SingleCategoriesCard />
       </Grid>
     </Grid>

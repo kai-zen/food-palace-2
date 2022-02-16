@@ -8,12 +8,12 @@ import { Favorite, ShoppingCart } from '@mui/icons-material';
 
 export default function SingleCategoriesCard() {
   return (
-    <Card>
+    <Card sx={{ maxWidth: '240px', boxShadow: 10, overflowY: 'auto' }}>
       <CardMedia
         component="img"
         alt="green iguana"
-        // height="140px"
-        image="./Images/bests-food-bkg.png"
+        height="240px"
+        image="./Images/1.jpg"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

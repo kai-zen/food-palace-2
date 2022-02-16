@@ -4,25 +4,11 @@ import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import { Toolbar } from '@mui/material';
+import { Paper, Toolbar } from '@mui/material';
 import SearchTabPanel from './serach-tab/SearchTabPanel';
 import CategoriesTabPanel from './categories-tab/CategoriesTabPanel';
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-    </div>
-  );
-}
+import CommentsTabPanel from './comments-tab/CommentsTabPanel';
+import { LocalFireDepartment } from '@mui/icons-material';
 
 function a11yProps(index) {
   return {
@@ -69,7 +55,7 @@ const MyTabs = () => {
           >
             <Tab label="Search food" {...a11yProps(0)} />
             <Tab label="Categories" {...a11yProps(1)} />
-            <Tab label="Articles" {...a11yProps(2)} />
+            <Tab label="Latest Comments" {...a11yProps(2)} />
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -80,19 +66,22 @@ const MyTabs = () => {
           <div value={currentActiveTab} index={0} className="search-tab-panel">
             <SearchTabPanel />
           </div>
-          <div
+          <Paper
             value={currentActiveTab}
             index={1}
             className="categories-tab-panel"
+            square
           >
             <CategoriesTabPanel />
-          </div>
-          <TabPanel value={currentActiveTab} index={1}>
-            Item Two
-          </TabPanel>
-          <TabPanel value={currentActiveTab} index={2}>
-            Item Three
-          </TabPanel>
+          </Paper>
+          <Paper
+            value={currentActiveTab}
+            index={2}
+            className="comments-tab-panel"
+            square
+          >
+            <CommentsTabPanel />
+          </Paper>
         </SwipeableViews>
       </Box>
     </>

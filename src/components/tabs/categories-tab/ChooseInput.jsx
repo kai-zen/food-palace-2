@@ -44,6 +44,7 @@ export default function ChooseInput() {
         variant="contained"
         ref={anchorRef}
         aria-label="split button"
+        sx={{ mt: 3 }}
       >
         <Button sx={{ fontSize: '20px' }}>{options[selectedIndex]}</Button>
         <Button
