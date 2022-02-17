@@ -1,17 +1,29 @@
 .search-tab-panel {
     background-image: url('./../Images/search-food-bkg.jpg');
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     width: calc(100% - 48px);
+    height: calc(100vh - 162px);
+    padding: 24px;
+    overflow-y: scroll;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.categories-tab-panel {
     height: calc(100vh - 162px);
     padding: 24px;
     position: relative;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.categories-tab-panel {
-    background-image: url('./../Images/categories-food-bkg.jpg');
-    background-size: cover;
-    width: calc(100% - 48px);
+.comments-tab-panel {
     height: calc(100vh - 162px);
     padding: 24px;
     position: relative;

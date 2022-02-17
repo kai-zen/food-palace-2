@@ -8,7 +8,6 @@ import { Paper, Toolbar } from '@mui/material';
 import SearchTabPanel from './serach-tab/SearchTabPanel';
 import CategoriesTabPanel from './categories-tab/CategoriesTabPanel';
 import CommentsTabPanel from './comments-tab/CommentsTabPanel';
-import { LocalFireDepartment } from '@mui/icons-material';
 
 function a11yProps(index) {
   return {
@@ -17,8 +16,8 @@ function a11yProps(index) {
   };
 }
 
-const MyTabs = () => {
-  const [currentActiveTab, setCurrentActiveTab] = useState(0);
+const MyTabs = ({ activeTab }) => {
+  const [currentActiveTab, setCurrentActiveTab] = useState(activeTab);
 
   const handleChange = (event, newValue) => {
     setCurrentActiveTab(newValue);

@@ -7,7 +7,7 @@ const CategoriesCardsGrid = () => {
     <Grid
       container
       spacing={3}
-      sx={{ mt: 3, display: 'flex', justifyContent: 'center' }}
+      sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}
     >
       <Grid
         item
