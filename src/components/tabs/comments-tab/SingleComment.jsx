@@ -14,6 +14,7 @@ export default function SingleComment() {
         mb: 3,
         minHeight: '170px',
         overflowY: 'auto',
+        maxWidth: '90%',
       }}
     >
       <Avatar sx={{ width: 56, height: 56 }}>N</Avatar>

@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import MyLayout from './components/layout/MyLayout';
 import { theme } from './components/layout/theme';
+import SingleFoodPage from './components/single-food/SingleFood';
 import MyTabs from './components/tabs/MyTabs';
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/" element={<MyTabs activeTab={0} />} />
           <Route path="/categories" element={<MyTabs activeTab={1} />} />
           <Route path="/comments" element={<MyTabs activeTab={2} />} />
+          <Route path="/single" element={<SingleFoodPage />} />
         </Routes>
       </ThemeProvider>
     </Router>

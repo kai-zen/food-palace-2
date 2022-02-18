@@ -14,7 +14,11 @@ export default function SearchInput() {
         display: 'flex',
         alignItems: 'center',
         width: '97%',
-        maxWidth: 400,
+        maxWidth: 460,
+        opacity: '0.7',
+        '&:hover': {
+          opacity: '1',
+        },
       }}
     >
       <InputBase

@@ -21,13 +21,13 @@ const SearchTabPanel = () => {
         Food Palace 2
       </Typography>
       <SearchInput />
+      {/* <SearchSingleCard />
       <SearchSingleCard />
       <SearchSingleCard />
       <SearchSingleCard />
       <SearchSingleCard />
       <SearchSingleCard />
-      <SearchSingleCard />
-      <SearchSingleCard />
+      <SearchSingleCard /> */}
     </>
   );
 };
