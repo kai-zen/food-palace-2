@@ -1,3 +1,17 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 .search-tab-panel {
     background-image: url('./../Images/search-food-bkg.jpg');
     background-size: cover;

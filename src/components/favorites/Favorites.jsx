@@ -1,6 +1,7 @@
 import { Favorite } from '@mui/icons-material';
 import { Paper, Typography } from '@mui/material';
 import React from 'react';
+
 import CategoriesCardsGrid from '../tabs/categories-tab/CategoriesCardGrid';
 
 const Favorites = () => {

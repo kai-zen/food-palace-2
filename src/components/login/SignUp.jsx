@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { Link as RRDLink } from 'react-router-dom';
 
 export default function SignUp() {
   const handleSubmit = (event) => {
@@ -101,13 +102,11 @@ export default function SignUp() {
           >
             Sign Up
           </Button>
-          <Grid container>
-            <Grid item>
-              <Link href="#" variant="body2" color="secondary">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
+          <RRDLink to="/sign-in">
+            <Link href="#" variant="body2" color="secondary">
+              Already have an account? Sign in
+            </Link>
+          </RRDLink>
         </Box>
       </Box>
     </Container>

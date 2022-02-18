@@ -7,9 +7,11 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
+import { Link as RRDLink, useNavigate } from 'react-router-dom';
 import React from 'react';
 
 const MyAppBar = ({ handleDrawerToggle }) => {
+  const navigate = useNavigate();
   return (
     <AppBar
       sx={{
@@ -30,22 +32,37 @@ const MyAppBar = ({ handleDrawerToggle }) => {
         </IconButton>
         <Typography
           variant="h6"
-          component="div"
-          sx={{ flexGrow: 1, fontWeight: 'bold' }}
+          component="h3"
+          sx={{ flexGrow: 1, fontWeight: 'bold', cursor: 'pointer' }}
+          onClick={() => navigate('/')}
         >
           Food Palace 2
         </Typography>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <ShoppingCart />
-          </Badge>
-        </IconButton>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <Favorite />
-          </Badge>
-        </IconButton>
-        <Button color="inherit">Login</Button>
+        <RRDLink to="/shopping-cart">
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          >
+            <Badge badgeContent={4} color="error">
+              <ShoppingCart />
+            </Badge>
+          </IconButton>
+        </RRDLink>
+        <RRDLink to="/favorites">
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          >
+            <Badge badgeContent={4} color="error">
+              <Favorite />
+            </Badge>
+          </IconButton>
+        </RRDLink>
+        <RRDLink to="/sign-in">
+          <Button color="inherit">Login</Button>
+        </RRDLink>
       </Toolbar>
     </AppBar>
   );

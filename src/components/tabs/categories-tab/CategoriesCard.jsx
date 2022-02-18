@@ -5,10 +5,20 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { IconButton, Rating } from '@mui/material';
 import { Favorite, ShoppingCart } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 export default function SingleCategoriesCard() {
+  let navigate = useNavigate();
   return (
-    <Card sx={{ maxWidth: '240px', boxShadow: 10, overflowY: 'auto' }}>
+    <Card
+      sx={{
+        maxWidth: '240px',
+        boxShadow: 10,
+        overflowY: 'auto',
+        cursor: 'pointer',
+      }}
+      onClick={() => navigate('/single')}
+    >
       <CardMedia
         component="img"
         alt="green iguana"

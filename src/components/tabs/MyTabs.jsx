@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
@@ -8,6 +8,7 @@ import { Paper, Toolbar } from '@mui/material';
 import SearchTabPanel from './serach-tab/SearchTabPanel';
 import CategoriesTabPanel from './categories-tab/CategoriesTabPanel';
 import CommentsTabPanel from './comments-tab/CommentsTabPanel';
+import { useNavigate } from 'react-router-dom';
 
 function a11yProps(index) {
   return {
@@ -17,15 +18,33 @@ function a11yProps(index) {
 }
 
 const MyTabs = ({ activeTab }) => {
+  const navigate = useNavigate();
   const [currentActiveTab, setCurrentActiveTab] = useState(activeTab);
 
   const handleChange = (event, newValue) => {
+    switch (newValue) {
+      case 0:
+        navigate('/');
+        break;
+      case 1:
+        navigate('/categories');
+        break;
+      case 2:
+        navigate('/comments');
+        break;
+      default:
+        navigate('/');
+    }
     setCurrentActiveTab(newValue);
   };
 
   const handleChangeIndex = (index) => {
     setCurrentActiveTab(index);
   };
+
+  useEffect(() => {
+    setCurrentActiveTab(activeTab);
+  }, [activeTab]);
 
   return (
     <>

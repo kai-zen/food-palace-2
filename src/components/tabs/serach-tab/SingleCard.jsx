@@ -5,8 +5,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { IconButton, Rating } from '@mui/material';
 import { Favorite, ShoppingCart } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 export default function SearchSingleCard() {
+  const navigate = useNavigate();
   return (
     <Card
       sx={{
@@ -19,7 +21,9 @@ export default function SearchSingleCard() {
         justifyContent: 'space-between',
         boxShadow: 5,
         overflowY: 'auto',
+        cursor: 'pointer',
       }}
+      onClick={() => navigate('/single')}
     >
       <CardContent sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography

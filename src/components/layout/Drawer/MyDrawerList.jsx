@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import {
-  Article,
   Category,
+  Comment,
   Favorite,
   GitHub,
   Home,
@@ -20,6 +20,7 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
+import { Link as RRDLink } from 'react-router-dom';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -74,26 +75,55 @@ const MyDrawerList = () => {
       <Toolbar />
       <Divider />
       <List>
-        {[
-          'Home',
-          'Articles',
-          'ShoppingCart',
-          'Favorites',
-          'Categories',
-          'Source Code',
-        ].map((text, index) => (
-          <ListItem button key={text}>
+        <RRDLink to="/">
+          <ListItem button key="home">
             <ListItemIcon>
-              {index === 0 && <Home />}
-              {index === 1 && <Article />}
-              {index === 2 && <ShoppingCart />}
-              {index === 3 && <Favorite />}
-              {index === 4 && <Category />}
-              {index === 5 && <GitHub />}
+              <Home />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary="Home" />
           </ListItem>
-        ))}
+        </RRDLink>
+
+        <RRDLink to="/categories">
+          <ListItem button key="category">
+            <ListItemIcon>
+              <Category />
+            </ListItemIcon>
+            <ListItemText primary="Categories" />
+          </ListItem>
+        </RRDLink>
+        <RRDLink to="/comments">
+          <ListItem button key="comments">
+            <ListItemIcon>
+              <Comment />
+            </ListItemIcon>
+            <ListItemText primary="Comment" />
+          </ListItem>
+        </RRDLink>
+        <RRDLink to="/shopping-cart">
+          <ListItem button key="cart">
+            <ListItemIcon>
+              <ShoppingCart />
+            </ListItemIcon>
+            <ListItemText primary="Shopping cart" />
+          </ListItem>
+        </RRDLink>
+        <RRDLink to="/favorites">
+          <ListItem button key="fav">
+            <ListItemIcon>
+              <Favorite />
+            </ListItemIcon>
+            <ListItemText primary="Favorites" />
+          </ListItem>
+        </RRDLink>
+        <ListItem button key="github">
+          <a href="/#">
+            <ListItemIcon>
+              <GitHub />
+            </ListItemIcon>
+          </a>
+          <ListItemText primary="Source code" />
+        </ListItem>
         <ListItem button key="Logout">
           <ListItemIcon>
             <Logout />

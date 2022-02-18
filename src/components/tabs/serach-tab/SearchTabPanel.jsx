@@ -1,7 +1,6 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 import SearchInput from './SearchInput';
-import SearchSingleCard from './SingleCard';
 
 const SearchTabPanel = () => {
   return (
@@ -21,7 +20,6 @@ const SearchTabPanel = () => {
         Food Palace 2
       </Typography>
       <SearchInput />
-      <SearchSingleCard />
     </>
   );
 };
