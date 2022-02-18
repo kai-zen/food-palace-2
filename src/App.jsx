@@ -6,6 +6,7 @@ import MyLayout from './components/layout/MyLayout';
 import { theme } from './components/layout/theme';
 import SignIn from './components/login/SignIn';
 import SignUp from './components/login/SignUp';
+import MyShoppingCart from './components/shopping-cart/ShoppingCart';
 import SingleFoodPage from './components/single-food/SingleFood';
 import MyTabs from './components/tabs/MyTabs';
 
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/shopping-cart" element={<MyShoppingCart />} />
         </Routes>
       </ThemeProvider>
     </Router>

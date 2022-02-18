@@ -108,7 +108,12 @@ const MyDrawerList = () => {
       </ListItem>
       <Divider />
       <FormControlLabel
-        control={<MaterialUISwitch sx={{ m: 1, ml: 13, mt: 3 }} />}
+        control={
+          <MaterialUISwitch
+            sx={{ m: 1, ml: 13, mt: 3 }}
+            defaultChecked={false}
+          />
+        }
         label=""
       />
     </div>
