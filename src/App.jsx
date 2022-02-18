@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@emotion/react';
 import React from 'react';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import Favorites from './components/favorites/Favorites';
 import MyLayout from './components/layout/MyLayout';
 import { theme } from './components/layout/theme';
 import SingleFoodPage from './components/single-food/SingleFood';
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/categories" element={<MyTabs activeTab={1} />} />
           <Route path="/comments" element={<MyTabs activeTab={2} />} />
           <Route path="/single" element={<SingleFoodPage />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </ThemeProvider>
     </Router>
