@@ -21,6 +21,8 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { Link as RRDLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { changeTheme } from '../../../features/themeSlice';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -70,6 +72,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const MyDrawerList = () => {
+  const dispatch = useDispatch();
   return (
     <div>
       <Toolbar />
@@ -141,7 +144,9 @@ const MyDrawerList = () => {
         control={
           <MaterialUISwitch
             sx={{ m: 1, ml: 13, mt: 3 }}
-            defaultChecked={false}
+            onClick={() => {
+              dispatch(changeTheme());
+            }}
           />
         }
         label=""

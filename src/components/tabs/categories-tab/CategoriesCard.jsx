@@ -23,7 +23,7 @@ export default function SingleCategoriesCard() {
         component="img"
         alt="green iguana"
         height="240px"
-        image="./Images/1.jpg"
+        image="./Images/foods/1.jpg"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

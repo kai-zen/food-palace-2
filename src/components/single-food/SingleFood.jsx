@@ -16,7 +16,7 @@ const SingleFoodPage = () => {
       }}
     >
       <img
-        src="./images/1.jpg"
+        src="./images/foods/1.jpg"
         alt=""
         style={{
           margin: '20px',

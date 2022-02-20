@@ -54,7 +54,7 @@ export default function SearchSingleCard() {
       <CardMedia
         component="img"
         sx={{ width: 136, height: 136, margin: '11px' }}
-        image="./images/1.jpg"
+        image="./images/foods/1.jpg"
         alt="Live from space album cover"
       />
     </Card>
