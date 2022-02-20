@@ -17,7 +17,7 @@ export default function SingleCategoriesCard({ food }) {
         overflowY: 'auto',
         cursor: 'pointer',
       }}
-      onClick={() => navigate('/single')}
+      onClick={() => navigate(`/single/${food.id}`)}
     >
       <CardMedia
         component="img"
