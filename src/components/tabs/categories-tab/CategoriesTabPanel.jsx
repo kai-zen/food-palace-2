@@ -7,8 +7,13 @@ const CategoriesTabPanel = () => {
   const allFoods = useSelector((state) => state.foods.allFoods);
   const [selectedCat, setSelectedCat] = useState('pizza');
 
-  const foodsToShow = [...allFoods];
-  foodsToShow.filter((food) => food.category === selectedCat);
+  let foodsToShow = [...allFoods].filter(
+    (food) => food.category === selectedCat
+  );
+
+  if (foodsToShow.length === 0) {
+    foodsToShow = allFoods;
+  }
 
   return (
     <>

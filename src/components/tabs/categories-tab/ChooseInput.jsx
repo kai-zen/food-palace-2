@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 
 const options = [
+  '-----',
   'Pizza',
   'Pasta',
   'Burger',

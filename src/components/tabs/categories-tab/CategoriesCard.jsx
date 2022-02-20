@@ -21,16 +21,16 @@ export default function SingleCategoriesCard({ food }) {
     >
       <CardMedia
         component="img"
-        alt="green iguana"
+        alt={food.name}
         height="240px"
-        image="./Images/foods/1.jpg"
+        image={food.image}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {food.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Price: 2.45$
+          Price: {food.price}$
         </Typography>
         <br />
         <div
@@ -42,7 +42,7 @@ export default function SingleCategoriesCard({ food }) {
         >
           <Rating
             name="half-rating-read"
-            defaultValue={2.5}
+            defaultValue={food.rate}
             precision={0.5}
             readOnly
           />
