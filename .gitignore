@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
+/public/Images/foods
 .pnp.js
 
 # testing
