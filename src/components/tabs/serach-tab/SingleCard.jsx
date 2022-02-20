@@ -7,7 +7,7 @@ import { IconButton, Rating } from '@mui/material';
 import { Favorite, ShoppingCart } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
-export default function SearchSingleCard() {
+export default function SearchSingleCard({ food }) {
   const navigate = useNavigate();
   return (
     <Card
@@ -23,7 +23,7 @@ export default function SearchSingleCard() {
         overflowY: 'auto',
         cursor: 'pointer',
       }}
-      onClick={() => navigate('/single')}
+      onClick={() => navigate(`/single/${food.id}`)}
     >
       <CardContent sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography
@@ -31,14 +31,14 @@ export default function SearchSingleCard() {
           variant="h5"
           sx={{ fontWeight: 'bold', textOverflow: 'ellipsis' }}
         >
-          Live
+          {food.name}
         </Typography>
         <Typography variant="h6" color="text.secondary">
-          4.56 $
+          {`${food.price} $`}
         </Typography>
         <Rating
           name="half-rating-read"
-          defaultValue={2.5}
+          defaultValue={food.rate}
           precision={0.5}
           readOnly
         />
@@ -54,7 +54,7 @@ export default function SearchSingleCard() {
       <CardMedia
         component="img"
         sx={{ width: 136, height: 136, margin: '11px' }}
-        image="./images/foods/1.jpg"
+        image={food.image}
         alt="Live from space album cover"
       />
     </Card>

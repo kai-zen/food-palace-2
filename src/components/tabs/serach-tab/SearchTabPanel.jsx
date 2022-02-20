@@ -1,8 +1,24 @@
 import { Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import SearchInput from './SearchInput';
+import SearchSingleCard from './SingleCard';
 
 const SearchTabPanel = () => {
+  const allFoods = useSelector((state) => state.foods.allFoods);
+  const [filteredFoods, setFilteredFoods] = useState([]);
+
+  const whatToRender = () => {
+    console.log(filteredFoods);
+    if (filteredFoods.length === allFoods.length || filteredFoods.length === 0)
+      return null;
+    else {
+      return filteredFoods.map((food) => {
+        return <SearchSingleCard food={food} />;
+      });
+    }
+  };
+
   return (
     <>
       <Typography
@@ -12,14 +28,14 @@ const SearchTabPanel = () => {
           mt: '21vh',
           mb: 2,
           fontWeight: 'bold',
-          // fontStyle: 'italic',
           fontFamily: 'Bad Script',
           textAlign: 'center',
         }}
       >
         Food Palace 2
       </Typography>
-      <SearchInput />
+      <SearchInput allFoods={allFoods} setFilteredFoods={setFilteredFoods} />
+      {whatToRender()}
     </>
   );
 };

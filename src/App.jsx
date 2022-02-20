@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/" element={<MyTabs activeTab={0} />} />
           <Route path="/categories" element={<MyTabs activeTab={1} />} />
           <Route path="/comments" element={<MyTabs activeTab={2} />} />
-          <Route path="/single" element={<SingleFoodPage />} />
+          <Route path="/single/:foodId" element={<SingleFoodPage />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />

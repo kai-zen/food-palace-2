@@ -7,7 +7,7 @@ import { IconButton, Rating } from '@mui/material';
 import { Favorite, ShoppingCart } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
-export default function SingleCategoriesCard() {
+export default function SingleCategoriesCard({ food }) {
   let navigate = useNavigate();
   return (
     <Card

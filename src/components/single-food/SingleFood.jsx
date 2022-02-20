@@ -2,8 +2,13 @@ import { Paper, Rating, Typography, IconButton, Button } from '@mui/material';
 import React from 'react';
 import SingleComment from '../tabs/comments-tab/SingleComment';
 import { Favorite, ShoppingCart } from '@mui/icons-material';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const SingleFoodPage = () => {
+  let { foodId } = useParams();
+  const allFoods = useSelector((state) => state.foods.allFoods);
+  const food = allFoods[foodId];
   return (
     <Paper
       sx={{
@@ -16,8 +21,8 @@ const SingleFoodPage = () => {
       }}
     >
       <img
-        src="./images/foods/1.jpg"
-        alt=""
+        src={`${food.image}`}
+        alt={food.name}
         style={{
           margin: '20px',
           borderRadius: '50%',
@@ -27,15 +32,20 @@ const SingleFoodPage = () => {
         }}
       />
       <Typography variant="h4" sx={{ m: 3 }}>
-        Food Name
+        {food.name}
       </Typography>
       <Typography variant="h6" color="text.secondary">
-        Price: 2.25$
+        Price: {food.price} $
       </Typography>
       <Typography variant="h6" color="text.secondary">
-        Order quantity: 78
+        Order quantity: {food.orderQuantity}
       </Typography>
-      <Rating sx={{ m: 2 }} size="large" defaultValue={3.5} precision={0.5} />
+      <Rating
+        sx={{ m: 2 }}
+        size="large"
+        defaultValue={food.rate}
+        precision={0.5}
+      />
       <div style={{ margin: '0 10px 10px' }}>
         <IconButton size="large">
           <ShoppingCart fontSize="inherit" />

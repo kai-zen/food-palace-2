@@ -10,16 +10,19 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 
 const options = [
-  'Create a merge commit',
-  'Squash and merge',
-  'Rebase and merge',
-  'Whatever I do not care',
+  'Pizza',
+  'Pasta',
+  'Burger',
+  'Drink',
+  'Fried',
+  'Salad',
+  'Other',
 ];
 
-export default function ChooseInput() {
+export default function ChooseInput({ setSelectedCat }) {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
-  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
@@ -80,7 +83,10 @@ export default function ChooseInput() {
                     <MenuItem
                       key={option}
                       selected={index === selectedIndex}
-                      onClick={(event) => handleMenuItemClick(event, index)}
+                      onClick={(event) => {
+                        handleMenuItemClick(event, index);
+                        setSelectedCat(option);
+                      }}
                     >
                       {option}
                     </MenuItem>
