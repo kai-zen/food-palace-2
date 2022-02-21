@@ -90,7 +90,7 @@ export default function SearchSingleCard({ food }) {
         component="img"
         sx={{ width: 136, height: 136, margin: '11px' }}
         image={food.image}
-        alt="Live from space album cover"
+        alt={food.name}
       />
     </Card>
   );

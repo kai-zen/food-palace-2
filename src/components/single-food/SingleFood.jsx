@@ -1,14 +1,37 @@
 import { Paper, Rating, Typography, IconButton, Button } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import SingleComment from '../tabs/comments-tab/SingleComment';
 import { Favorite, ShoppingCart } from '@mui/icons-material';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleToCart, toggleToFavorites } from '../../features/foodsSlice';
 
 const SingleFoodPage = () => {
   let { foodId } = useParams();
+  const dispatch = useDispatch();
   const allFoods = useSelector((state) => state.foods.allFoods);
   const food = allFoods[foodId];
+  const [heartColor, setHeartColor] = useState(
+    food.isItInFav ? 'error' : 'action'
+  );
+  const [cartColor, setCartColor] = useState(
+    food.isItInCart ? 'success' : 'action'
+  );
+  const heartColorToggler = () => {
+    if (heartColor === 'action') {
+      setHeartColor('error');
+    } else {
+      setHeartColor('action');
+    }
+  };
+  const cartColorToggler = () => {
+    if (cartColor === 'action') {
+      setCartColor('success');
+    } else {
+      setCartColor('action');
+    }
+  };
+
   return (
     <Paper
       sx={{
@@ -47,11 +70,23 @@ const SingleFoodPage = () => {
         precision={0.5}
       />
       <div style={{ margin: '0 10px 10px' }}>
-        <IconButton size="large">
-          <ShoppingCart fontSize="inherit" />
+        <IconButton
+          size="large"
+          onClick={() => {
+            dispatch(toggleToCart(food));
+            cartColorToggler();
+          }}
+        >
+          <ShoppingCart fontSize="inherit" color={cartColor} />
         </IconButton>
-        <IconButton size="large">
-          <Favorite fontSize="inherit" />
+        <IconButton
+          size="large"
+          onClick={() => {
+            dispatch(toggleToFavorites(food));
+            heartColorToggler();
+          }}
+        >
+          <Favorite fontSize="inherit" color={heartColor} />
         </IconButton>
       </div>
       <div style={{ margin: '0px 10px 20px 10px', float: 'left' }}>

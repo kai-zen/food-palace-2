@@ -12,7 +12,10 @@ import { changeCartQuantity } from '../../features/foodsSlice';
 
 export default function MyShoppingCart() {
   const [totalPrice, setTotalPrice] = useState(0);
-  const currentCart = useSelector((state) => state.foods.cart);
+  const allFoods = useSelector((state) => state.foods.allFoods);
+  const currentCart = [...allFoods].filter((food) => {
+    return food.isItInCart === true;
+  });
   const dispatch = useDispatch();
   const calculateTotalPrice = () => {
     let currentTotalPrice = 0;

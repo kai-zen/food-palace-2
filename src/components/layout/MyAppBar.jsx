@@ -13,8 +13,13 @@ import { useSelector } from 'react-redux';
 
 const MyAppBar = ({ handleDrawerToggle }) => {
   const navigate = useNavigate();
-  const favorites = useSelector((state) => state.foods.favorites);
-  const cart = useSelector((state) => state.foods.cart);
+  const allFoods = useSelector((state) => state.foods.allFoods);
+  const cart = [...allFoods].filter((food) => {
+    return food.isItInCart === true;
+  });
+  const favorites = [...allFoods].filter((food) => {
+    return food.isItInFav === true;
+  });
   return (
     <AppBar
       sx={{
