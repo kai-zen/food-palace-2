@@ -9,12 +9,11 @@ const SearchTabPanel = () => {
   const [filteredFoods, setFilteredFoods] = useState([]);
 
   const whatToRender = () => {
-    console.log(filteredFoods);
     if (filteredFoods.length === allFoods.length || filteredFoods.length === 0)
       return null;
     else {
       return filteredFoods.map((food) => {
-        return <SearchSingleCard food={food} />;
+        return <SearchSingleCard food={food} key={food.id} />;
       });
     }
   };

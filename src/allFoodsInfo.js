@@ -96,7 +96,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 8,
-        name: 'Carbonara',
+        name: 'Carbonara pasta',
         price: 6.00,
         category: 'Pasta',
         orderQuantity: 113,
@@ -108,7 +108,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 9,
-        name: 'Chicken alfredo',
+        name: 'Chicken alfredo pasta',
         price: 7.00,
         category: 'Pasta',
         orderQuantity: 233,
@@ -120,7 +120,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 10,
-        name: 'Pesto',
+        name: 'Pesto pasta',
         price: 5.00,
         category: 'Pasta',
         orderQuantity: 89,
@@ -132,7 +132,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 11,
-        name: 'Bolognese',
+        name: 'Bolognese pasta',
         price: 5.50,
         category: 'Pasta',
         orderQuantity: 67,
@@ -228,7 +228,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 19,
-        name: 'Spicy chicken',
+        name: 'Spicy fried chicken',
         price: 5.50,
         category: 'Fried',
         orderQuantity: 197,
@@ -240,7 +240,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 20,
-        name: 'Normal chicken',
+        name: 'Normal fried chicken',
         price: 5.50,
         category: 'Fried',
         orderQuantity: 214,

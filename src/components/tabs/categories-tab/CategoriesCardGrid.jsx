@@ -17,6 +17,7 @@ const CategoriesCardsGrid = ({ foodsToShow }) => {
             md={6}
             lg={3}
             sx={{ display: 'flex', justifyContent: 'center' }}
+            key={food.id}
           >
             <SingleCategoriesCard food={food} />
           </Grid>

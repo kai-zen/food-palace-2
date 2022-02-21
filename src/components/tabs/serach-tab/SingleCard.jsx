@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { IconButton, Rating } from '@mui/material';
-import { Favorite, ShoppingCart } from '@mui/icons-material';
+import { Favorite, Info, ShoppingCart } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { toggleToFavorites } from '../../../features/foodsSlice';
 
 export default function SearchSingleCard({ food }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [heartColor, setHeartColor] = useState(
+    food.isItInFav ? 'error' : 'action'
+  );
+  const heartColorToggler = () => {
+    if (heartColor === 'action') {
+      setHeartColor('error');
+    } else {
+      setHeartColor('action');
+    }
+  };
   return (
     <Card
       sx={{
@@ -21,9 +34,8 @@ export default function SearchSingleCard({ food }) {
         justifyContent: 'space-between',
         boxShadow: 5,
         overflowY: 'auto',
-        cursor: 'pointer',
       }}
-      onClick={() => navigate(`/single/${food.id}`)}
+      key={food.id}
     >
       <CardContent sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography
@@ -43,11 +55,19 @@ export default function SearchSingleCard({ food }) {
           readOnly
         />
         <div>
-          <IconButton aria-label="delete">
+          <IconButton>
             <ShoppingCart />
           </IconButton>
-          <IconButton aria-label="delete">
-            <Favorite />
+          <IconButton
+            onClick={() => {
+              dispatch(toggleToFavorites(food));
+              heartColorToggler();
+            }}
+          >
+            <Favorite color={heartColor} />
+          </IconButton>
+          <IconButton onClick={() => navigate(`/single/${food.id}`)}>
+            <Info />
           </IconButton>
         </div>
       </CardContent>

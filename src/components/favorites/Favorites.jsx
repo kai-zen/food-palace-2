@@ -1,10 +1,12 @@
 import { Favorite } from '@mui/icons-material';
 import { Paper, Typography } from '@mui/material';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import CategoriesCardsGrid from '../tabs/categories-tab/CategoriesCardGrid';
 
 const Favorites = () => {
+  const favorites = useSelector((state) => state.foods.favorites);
   return (
     <Paper
       sx={{
@@ -21,7 +23,7 @@ const Favorites = () => {
         <Favorite color="secondary" fontSize="large" />
       </Typography>
 
-      <CategoriesCardsGrid />
+      <CategoriesCardsGrid foodsToShow={favorites} />
     </Paper>
   );
 };

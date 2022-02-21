@@ -9,9 +9,11 @@ import {
 } from '@mui/material';
 import { Link as RRDLink, useNavigate } from 'react-router-dom';
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const MyAppBar = ({ handleDrawerToggle }) => {
   const navigate = useNavigate();
+  const favorites = useSelector((state) => state.foods.favorites);
   return (
     <AppBar
       sx={{
@@ -55,7 +57,7 @@ const MyAppBar = ({ handleDrawerToggle }) => {
             aria-label="show 4 new mails"
             color="inherit"
           >
-            <Badge badgeContent={4} color="error">
+            <Badge badgeContent={favorites.length} color="error">
               <Favorite />
             </Badge>
           </IconButton>
