@@ -8,6 +8,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/0.jpg',
     },
     {
@@ -20,6 +21,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/1.jpg',
     },
     {
@@ -32,6 +34,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/2.jpg',
     },
     {
@@ -44,6 +47,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/3.jpg',
     },
     {
@@ -56,6 +60,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/4.jpg',
     },
     {
@@ -68,6 +73,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/5.jpg',
     },
     {
@@ -80,6 +86,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/6.jpg',
     },
     {
@@ -92,6 +99,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/7.jpg',
     },
     {
@@ -104,6 +112,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/8.jpg',
     },
     {
@@ -116,6 +125,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/9.jpg',
     },
     {
@@ -128,6 +138,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/10.jpg',
     },
     {
@@ -140,6 +151,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/11.jpg',
     },
     {
@@ -152,6 +164,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/12.jpg',
     },
     {
@@ -164,6 +177,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/13.jpg',
     },
     {
@@ -176,6 +190,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/14.jpg',
     },
     {
@@ -188,6 +203,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/15.jpg',
     },
     {
@@ -200,6 +216,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/16.jpg',
     },
     {
@@ -212,6 +229,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/17.jpg',
     },
     {
@@ -224,6 +242,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/18.jpg',
     },
     {
@@ -236,6 +255,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/19.jpg',
     },
     {
@@ -248,6 +268,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/20.jpg',
     },
     {
@@ -260,6 +281,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/21.jpg',
     },
     {
@@ -272,6 +294,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/22.jpg',
     },
     {
@@ -284,6 +307,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/23.jpg',
     },
     {
@@ -296,6 +320,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/24.jpg',
     },
     {
@@ -308,6 +333,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/25.jpg',
     },
     {
@@ -320,6 +346,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/26.jpg',
     },
     {
@@ -332,6 +359,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/27.jpg',
     },
     {
@@ -356,6 +384,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/29.jpg',
     },
     {
@@ -368,6 +397,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/30.jpg',
     },
     {
@@ -380,6 +410,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/31.jpg',
     },
     {
@@ -392,6 +423,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/32.jpg',
     },
     {
@@ -404,6 +436,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/33.jpg',
     },
     {
@@ -416,6 +449,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/34.jpg',
     },
     {
@@ -428,6 +462,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/35.jpg',
     },
     {
@@ -440,6 +475,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/36.jpg',
     },
     {
@@ -452,6 +488,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/37.jpg',
     },
     {
@@ -464,6 +501,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/38.jpg',
     },
     {
@@ -476,6 +514,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/39.jpg',
     },
     {
@@ -488,6 +527,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/40.jpg',
     },
     {
@@ -500,6 +540,7 @@ export const allFoodsInfo = [{
         isItInFav: false,
         isItInCart: false,
         deleted: false,
+        cartQuantity: 1,
         image: '/Images/foods/41.jpg',
     },
 ]

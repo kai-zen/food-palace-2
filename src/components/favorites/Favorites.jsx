@@ -13,6 +13,7 @@ const Favorites = () => {
         width: { sm: 'calc(100% - 260px)' },
         ml: { sm: '260px' },
         pt: '98px',
+        pb: '50px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

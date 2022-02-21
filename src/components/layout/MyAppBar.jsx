@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 const MyAppBar = ({ handleDrawerToggle }) => {
   const navigate = useNavigate();
   const favorites = useSelector((state) => state.foods.favorites);
+  const cart = useSelector((state) => state.foods.cart);
   return (
     <AppBar
       sx={{
@@ -46,7 +47,7 @@ const MyAppBar = ({ handleDrawerToggle }) => {
             aria-label="show 4 new mails"
             color="inherit"
           >
-            <Badge badgeContent={4} color="error">
+            <Badge badgeContent={cart.length} color="error">
               <ShoppingCart />
             </Badge>
           </IconButton>

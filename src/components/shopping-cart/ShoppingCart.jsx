@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,8 +7,25 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Favorite, ShoppingCart } from '@mui/icons-material';
 import { Button, Chip, IconButton, TextField, Typography } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeCartQuantity } from '../../features/foodsSlice';
 
 export default function MyShoppingCart() {
+  const [totalPrice, setTotalPrice] = useState(0);
+  const currentCart = useSelector((state) => state.foods.cart);
+  const dispatch = useDispatch();
+  const calculateTotalPrice = () => {
+    let currentTotalPrice = 0;
+    for (const food of currentCart) {
+      currentTotalPrice += food.price * food.cartQuantity;
+    }
+    setTotalPrice(currentTotalPrice);
+  };
+
+  useEffect(() => {
+    calculateTotalPrice();
+  });
+
   return (
     <Paper
       sx={{
@@ -31,35 +48,54 @@ export default function MyShoppingCart() {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow
-            key="1"
-            sx={{
-              '&:last-child td, &:last-child th': { border: 0 },
-            }}
-          >
-            <TableCell component="th" scope="row" align="center">
-              Hamburger
-            </TableCell>
-            <TableCell align="center">4.5 $</TableCell>
-            <TableCell align="center">
-              <TextField
-                type="number"
-                variant="standard"
-                defaultValue={1}
-                sx={{ width: '40px' }}
-              />
-            </TableCell>
-            <TableCell align="center">
-              <IconButton>
-                <Favorite />
-              </IconButton>
-            </TableCell>
-            <TableCell align="center">
-              <IconButton>
-                <ShoppingCart />
-              </IconButton>
-            </TableCell>
-          </TableRow>
+          {currentCart.map((food) => {
+            return (
+              <TableRow
+                key={food.id}
+                sx={{
+                  '&:last-child td, &:last-child th': { border: 0 },
+                }}
+              >
+                <TableCell component="th" scope="row" align="center">
+                  {food.name}
+                </TableCell>
+                <TableCell align="center">{food.price} $</TableCell>
+                <TableCell align="center">
+                  <TextField
+                    type="number"
+                    InputProps={{
+                      inputProps: {
+                        max: 100,
+                        min: 1,
+                      },
+                    }}
+                    variant="standard"
+                    defaultValue={food.cartQuantity}
+                    onChange={(e) => {
+                      dispatch(
+                        changeCartQuantity({
+                          index: food.id,
+                          quantity: e.target.value,
+                        })
+                      );
+                      calculateTotalPrice();
+                    }}
+                    sx={{ width: '40px' }}
+                  />
+                </TableCell>
+                <TableCell align="center">
+                  <IconButton>
+                    <Favorite />
+                  </IconButton>
+                </TableCell>
+                <TableCell align="center">
+                  <IconButton>
+                    <ShoppingCart />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
       <Typography
@@ -67,8 +103,12 @@ export default function MyShoppingCart() {
         fontWeight="bold"
         sx={{ width: '100%', m: 3, ml: 20 }}
       >
-        Total price:{' '}
-        <Chip color="primary" label="124 $" sx={{ fontSize: '22px' }} />
+        Total price:
+        <Chip
+          color="primary"
+          label={`${totalPrice} $`}
+          sx={{ fontSize: '22px' }}
+        />
       </Typography>
       <Button
         size="large"

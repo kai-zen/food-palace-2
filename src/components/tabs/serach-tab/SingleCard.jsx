@@ -7,7 +7,7 @@ import { IconButton, Rating } from '@mui/material';
 import { Favorite, Info, ShoppingCart } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { toggleToFavorites } from '../../../features/foodsSlice';
+import { toggleToCart, toggleToFavorites } from '../../../features/foodsSlice';
 
 export default function SearchSingleCard({ food }) {
   const navigate = useNavigate();
@@ -15,11 +15,21 @@ export default function SearchSingleCard({ food }) {
   const [heartColor, setHeartColor] = useState(
     food.isItInFav ? 'error' : 'action'
   );
+  const [cartColor, setCartColor] = useState(
+    food.isItInCart ? 'success' : 'action'
+  );
   const heartColorToggler = () => {
     if (heartColor === 'action') {
       setHeartColor('error');
     } else {
       setHeartColor('action');
+    }
+  };
+  const cartColorToggler = () => {
+    if (cartColor === 'action') {
+      setCartColor('success');
+    } else {
+      setCartColor('action');
     }
   };
   return (
@@ -55,8 +65,13 @@ export default function SearchSingleCard({ food }) {
           readOnly
         />
         <div>
-          <IconButton>
-            <ShoppingCart />
+          <IconButton
+            onClick={() => {
+              dispatch(toggleToCart(food));
+              cartColorToggler();
+            }}
+          >
+            <ShoppingCart color={cartColor} />
           </IconButton>
           <IconButton
             onClick={() => {
