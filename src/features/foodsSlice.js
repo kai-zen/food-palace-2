@@ -15,7 +15,9 @@ export const foodsSlice = createSlice({
                 state.favorites.push(payload.payload);
                 state.allFoods[payload.payload.id].isItInFav = true;
             } else {
-                state.favorites.splice(payload.payload.id, 1);
+                state.favorites = state.favorites.filter(food => {
+                    return payload.payload.id !== food.id
+                });
                 state.allFoods[payload.payload.id].isItInFav = false;
             }
 
