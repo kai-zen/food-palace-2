@@ -10,18 +10,27 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Link as RRDLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { signUp } from '../../features/usersSlice';
 
 export default function SignUp() {
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.users.users);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    dispatch(
+      signUp({
+        id: users.length,
+        firstName: data.get('firstName'),
+        lastName: data.get('lastName'),
+        email: data.get('email'),
+        password: data.get('password'),
+        isAdmin: true,
+        isDeleted: false,
+      })
+    );
   };
-
   return (
     <Container
       component="main"

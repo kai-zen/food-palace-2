@@ -7,9 +7,10 @@ const initialState = {
         lastName: 'Razipur',
         email: 'razipurali@gmail.com',
         password: '12345678',
-        isAdmin: true
+        isAdmin: true,
+        isDeleted: false
     }],
-    loggedInUser: []
+    loggedInUser: [],
 }
 export const usersSlice = createSlice({
     name: 'users',
@@ -19,16 +20,21 @@ export const usersSlice = createSlice({
             const isEmailInSystem = state.users.filter(theUser => {
                 return theUser.email === payload.payload.email
             })
-            if (isEmailInSystem) {
+            if (isEmailInSystem[0]) {
                 alert('email is already in the system')
             } else {
                 state.users.push(payload.payload);
+                alert('success')
             }
         },
         signIn: (state, payload) => {
             const user = state.users.filter(theUser => {
                 return theUser.email === payload.payload.email
             })
+            if (user[0].isDeleted) {
+                alert('You\'re banned')
+                return
+            }
             if (!user[0]) {
                 alert('email is not in the system')
                 return
@@ -38,6 +44,7 @@ export const usersSlice = createSlice({
                     alert('password is not true')
                 } else {
                     state.loggedInUser[0] = user[0];
+                    alert('logged in')
                 }
             }
         },
