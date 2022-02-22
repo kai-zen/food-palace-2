@@ -11,15 +11,20 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Link as RRDLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../features/usersSlice';
 
 export default function SignIn() {
+  const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    dispatch(
+      signIn({
+        email: data.get('email'),
+        password: data.get('password'),
+      })
+    );
   };
 
   return (
