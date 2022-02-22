@@ -24,6 +24,11 @@ const App = () => {
         main: red[800],
       },
     },
+    typography: {
+      allVariants: {
+        fontFamily: 'Nunito',
+      },
+    },
   });
   return (
     <Router>

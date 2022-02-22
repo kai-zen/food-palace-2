@@ -28,8 +28,17 @@ const Favorites = () => {
         Favorite Foods
         <Favorite color="secondary" fontSize="large" />
       </Typography>
-
-      <CategoriesCardsGrid foodsToShow={favorites} />
+      {favorites.length !== 0 ? (
+        <CategoriesCardsGrid foodsToShow={favorites} />
+      ) : (
+        <Typography
+          variant="h5"
+          sx={{ mt: 20, fontStyle: 'italic' }}
+          color="textSecondary"
+        >
+          --No foods in your favorites!--
+        </Typography>
+      )}
     </Paper>
   );
 };
