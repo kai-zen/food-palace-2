@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     users: [{
         id: 0,
-        firstName: 'ali',
+        firstName: 'Ali',
         lastName: 'Razipur',
         email: 'razipurali@gmail.com',
         password: '12345678',
@@ -44,7 +44,8 @@ export const usersSlice = createSlice({
                     alert('password is not true')
                 } else {
                     state.loggedInUser[0] = user[0];
-                    alert('logged in')
+                    alert('logged in');
+
                 }
             }
         },

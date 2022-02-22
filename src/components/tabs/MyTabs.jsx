@@ -73,7 +73,7 @@ const MyTabs = ({ activeTab }) => {
           >
             <Tab label="Search food" {...a11yProps(0)} />
             <Tab label="Categories" {...a11yProps(1)} />
-            <Tab label="Latest Comments" {...a11yProps(2)} />
+            <Tab label="Comments" {...a11yProps(2)} />
           </Tabs>
         </AppBar>
         <SwipeableViews

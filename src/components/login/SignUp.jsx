@@ -26,7 +26,7 @@ export default function SignUp() {
         lastName: data.get('lastName'),
         email: data.get('email'),
         password: data.get('password'),
-        isAdmin: true,
+        isAdmin: false,
         isDeleted: false,
       })
     );

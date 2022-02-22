@@ -13,19 +13,24 @@ import {
   Typography,
 } from '@mui/material';
 import { Link as RRDLink, useNavigate } from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { UserInfoDialog } from './UserInfoDialog';
 
 const MyAppBar = ({ handleDrawerToggle }) => {
   const navigate = useNavigate();
   const allFoods = useSelector((state) => state.foods.allFoods);
   const loggedInUser = useSelector((state) => state.users.loggedInUser);
+
   const cart = [...allFoods].filter((food) => {
     return food.isItInCart === true;
   });
   const favorites = [...allFoods].filter((food) => {
     return food.isItInFav === true;
   });
+
+  const [open, setOpen] = useState(false);
+
   return (
     <AppBar
       sx={{
@@ -75,13 +80,19 @@ const MyAppBar = ({ handleDrawerToggle }) => {
           </IconButton>
         </RRDLink>
         {loggedInUser[0] ? (
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-          >
-            <ManageAccounts fontSize="inherit" />
-          </IconButton>
+          <>
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+              onClick={() => {
+                setOpen(true);
+              }}
+            >
+              <ManageAccounts fontSize="inherit" />
+            </IconButton>
+            <UserInfoDialog open={open} setOpen={setOpen} />
+          </>
         ) : (
           <RRDLink to="/sign-in">
             <Button color="inherit">Login</Button>

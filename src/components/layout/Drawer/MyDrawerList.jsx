@@ -23,8 +23,9 @@ import React from 'react';
 import { Link as RRDLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { changeTheme } from '../../../features/themeSlice';
+import { logout } from '../../../features/usersSlice';
 
-const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+const MaterialUISwitch = styled(Switch)(() => ({
   width: 62,
   height: 32,
   padding: 7,
@@ -127,7 +128,13 @@ const MyDrawerList = () => {
           </a>
           <ListItemText primary="Source code" />
         </ListItem>
-        <ListItem button key="Logout">
+        <ListItem
+          button
+          key="Logout"
+          onClick={() => {
+            dispatch(logout());
+          }}
+        >
           <ListItemIcon>
             <Logout />
           </ListItemIcon>

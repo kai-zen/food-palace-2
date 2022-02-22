@@ -31,7 +31,7 @@ const SearchTabPanel = () => {
           textAlign: 'center',
         }}
       >
-        Food Palace 2
+        Food Palace
       </Typography>
       <SearchInput allFoods={allFoods} setFilteredFoods={setFilteredFoods} />
       {whatToRender()}

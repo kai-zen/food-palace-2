@@ -38,7 +38,9 @@ export default function MyShoppingCart() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        minHeight: 'calc(100vh - 68px)',
       }}
+      square
     >
       <Table sx={{ maxWidth: '90%', m: 3 }} aria-label="simple table">
         <TableHead>
@@ -106,7 +108,7 @@ export default function MyShoppingCart() {
         fontWeight="bold"
         sx={{ width: '100%', m: 3, ml: 20 }}
       >
-        Total price:
+        Total price:&nbsp;
         <Chip
           color="primary"
           label={`${totalPrice} $`}

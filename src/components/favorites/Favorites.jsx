@@ -20,7 +20,9 @@ const Favorites = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        minHeight: 'calc(100vh - 148px)',
       }}
+      square
     >
       <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
         Favorite Foods

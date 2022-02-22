@@ -10,12 +10,14 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Link as RRDLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Link as RRDLink, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { signIn } from '../../features/usersSlice';
 
 export default function SignIn() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const loggedInUser = useSelector((state) => state.users.loggedInUser);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -39,6 +41,7 @@ export default function SignIn() {
         alignItems: 'center',
       }}
     >
+      {loggedInUser[0] && navigate('/')}
       <CssBaseline />
       <Box
         sx={{
