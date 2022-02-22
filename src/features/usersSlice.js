@@ -31,14 +31,14 @@ export const usersSlice = createSlice({
             const user = state.users.filter(theUser => {
                 return theUser.email === payload.payload.email
             })
-            if (user[0].isDeleted) {
-                alert('You\'re banned')
-                return
-            }
             if (!user[0]) {
                 alert('email is not in the system')
                 return
             } else {
+                if (user[0].isDeleted) {
+                    alert('You\'re banned')
+                    return
+                }
                 const isPasswordTrue = user[0].password === payload.payload.password;
                 if (!isPasswordTrue) {
                     alert('password is not true')

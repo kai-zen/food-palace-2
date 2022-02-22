@@ -1,4 +1,9 @@
-import { Favorite, Menu as MenuIcon, ShoppingCart } from '@mui/icons-material';
+import {
+  Favorite,
+  ManageAccounts,
+  Menu as MenuIcon,
+  ShoppingCart,
+} from '@mui/icons-material';
 import {
   AppBar,
   Badge,
@@ -14,6 +19,7 @@ import { useSelector } from 'react-redux';
 const MyAppBar = ({ handleDrawerToggle }) => {
   const navigate = useNavigate();
   const allFoods = useSelector((state) => state.foods.allFoods);
+  const loggedInUser = useSelector((state) => state.users.loggedInUser);
   const cart = [...allFoods].filter((food) => {
     return food.isItInCart === true;
   });
@@ -68,9 +74,19 @@ const MyAppBar = ({ handleDrawerToggle }) => {
             </Badge>
           </IconButton>
         </RRDLink>
-        <RRDLink to="/sign-in">
-          <Button color="inherit">Login</Button>
-        </RRDLink>
+        {loggedInUser[0] ? (
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          >
+            <ManageAccounts fontSize="inherit" />
+          </IconButton>
+        ) : (
+          <RRDLink to="/sign-in">
+            <Button color="inherit">Login</Button>
+          </RRDLink>
+        )}
       </Toolbar>
     </AppBar>
   );
