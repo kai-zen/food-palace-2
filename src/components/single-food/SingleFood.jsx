@@ -10,7 +10,11 @@ const SingleFoodPage = () => {
   let { foodId } = useParams();
   const dispatch = useDispatch();
   const allFoods = useSelector((state) => state.foods.allFoods);
+  const comments = useSelector((state) => state.comments.comments);
   const food = allFoods[foodId];
+  const thisFoodComments = [...comments].filter((comment) => {
+    return comment.foodId === food.id;
+  });
   const [heartColor, setHeartColor] = useState(
     food.isItInFav ? 'error' : 'action'
   );
@@ -94,7 +98,9 @@ const SingleFoodPage = () => {
           Leave a comment about this food
         </Button>
       </div>
-      <SingleComment />
+      {thisFoodComments.map((comment) => {
+        return <SingleComment comment={comment} />;
+      })}
     </Paper>
   );
 };

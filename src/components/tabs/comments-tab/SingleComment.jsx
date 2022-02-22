@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Avatar, Chip, Rating } from '@mui/material';
 
-export default function SingleComment() {
+export default function SingleComment({ comment }) {
   return (
     <Card
       sx={{
@@ -17,21 +17,16 @@ export default function SingleComment() {
         maxWidth: '90%',
       }}
     >
-      <Avatar sx={{ width: 56, height: 56 }}>N</Avatar>
+      <Avatar sx={{ width: 56, height: 56 }}>{comment.author[0]}</Avatar>
       <CardContent>
-        <Typography variant="h6">AuthorName</Typography>
+        <Typography variant="h6">{comment.author}</Typography>
         <br />
-        <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
-          voluptatem incidunt odit quod eveniet? Similique expedita repudiandae
-          quam ofuam officiis. Placeat inventore impedit nam. Beatae molestias
-          tempora architecto explicabo officiis repudiandae.
-        </Typography>
+        <Typography>{comment.body}</Typography>
         <br />
-        <Chip label="Hamburger" />
+        <Chip label={comment.chip} />
         <Rating
           name="half-rating-read"
-          defaultValue={2.5}
+          defaultValue={comment.rate}
           precision={0.5}
           readOnly
           sx={{ float: 'right' }}
