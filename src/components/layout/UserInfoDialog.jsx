@@ -13,12 +13,13 @@ export function UserInfoDialog({ open, setOpen }) {
   const navigate = useNavigate();
   const loggedInUser = useSelector((state) => state.users.loggedInUser);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
-    <Dialog onClose={handleClose} open={open}>
+    <Dialog
+      onClose={() => {
+        setOpen(false);
+      }}
+      open={open}
+    >
       <DialogContent
         sx={{
           display: 'flex',

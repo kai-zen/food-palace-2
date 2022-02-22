@@ -4,9 +4,10 @@ import SingleComment from './SingleComment';
 
 const CommentsTabPanel = () => {
   const comments = useSelector((state) => state.comments.comments);
+  const reversed = [...comments].reverse();
   return (
     <>
-      {comments.map((comment) => {
+      {reversed.map((comment) => {
         return <SingleComment comment={comment} />;
       })}
     </>

@@ -14,23 +14,31 @@ export default function SingleComment({ comment }) {
         mb: 3,
         minHeight: '170px',
         overflowY: 'auto',
-        maxWidth: '90%',
+        width: '90%',
       }}
     >
       <Avatar sx={{ width: 56, height: 56 }}>{comment.author[0]}</Avatar>
-      <CardContent>
+      <CardContent sx={{ width: '100%' }}>
         <Typography variant="h6">{comment.author}</Typography>
         <br />
         <Typography>{comment.body}</Typography>
         <br />
-        <Chip label={comment.chip} />
-        <Rating
-          name="half-rating-read"
-          defaultValue={comment.rate}
-          precision={0.5}
-          readOnly
-          sx={{ float: 'right' }}
-        />
+        <div
+          style={{
+            width: '100%',
+            padding: '5px 15px',
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Chip label={comment.chip} />
+          <Rating
+            name="half-rating-read"
+            defaultValue={comment.rate}
+            precision={0.5}
+            readOnly
+          />
+        </div>
       </CardContent>
     </Card>
   );

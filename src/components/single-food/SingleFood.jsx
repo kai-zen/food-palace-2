@@ -2,15 +2,20 @@ import { Paper, Rating, Typography, IconButton, Button } from '@mui/material';
 import React, { useState } from 'react';
 import SingleComment from '../tabs/comments-tab/SingleComment';
 import { Favorite, ShoppingCart } from '@mui/icons-material';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleToCart, toggleToFavorites } from '../../features/foodsSlice';
+import AddCommentDialog from './AddCommentDialog';
 
 const SingleFoodPage = () => {
   let { foodId } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const allFoods = useSelector((state) => state.foods.allFoods);
   const comments = useSelector((state) => state.comments.comments);
+  const loggedInUser = useSelector((state) => state.users.loggedInUser);
+
   const food = allFoods[foodId];
   const thisFoodComments = [...comments].filter((comment) => {
     return comment.foodId === food.id;
@@ -35,6 +40,8 @@ const SingleFoodPage = () => {
       setCartColor('action');
     }
   };
+
+  const [open, setOpen] = useState(false);
 
   return (
     <Paper
@@ -94,9 +101,25 @@ const SingleFoodPage = () => {
         </IconButton>
       </div>
       <div style={{ margin: '0px 10px 20px 10px', float: 'left' }}>
-        <Button variant="contained" color="secondary">
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            if (loggedInUser[0]) {
+              setOpen(true);
+            } else {
+              navigate('/sign-in');
+            }
+          }}
+        >
           Leave a comment about this food
         </Button>
+        <AddCommentDialog
+          setOpen={setOpen}
+          open={open}
+          foodId={food.id}
+          chip={food.name}
+        />
       </div>
       {thisFoodComments.map((comment) => {
         return <SingleComment comment={comment} />;
