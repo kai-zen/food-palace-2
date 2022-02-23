@@ -24,7 +24,7 @@ export const usersSlice = createSlice({
                 alert('email is already in the system')
             } else {
                 state.users.push(payload.payload);
-                alert('success')
+                alert('You signed up, now you can sign in')
             }
         },
         signIn: (state, payload) => {

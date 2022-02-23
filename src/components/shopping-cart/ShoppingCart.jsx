@@ -5,10 +5,9 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Favorite, ShoppingCart } from '@mui/icons-material';
-import { Button, Chip, IconButton, TextField, Typography } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeCartQuantity } from '../../features/foodsSlice';
+import { Button, Chip, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
+import SingleRow from './SingleRow';
 
 export default function MyShoppingCart() {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -16,7 +15,6 @@ export default function MyShoppingCart() {
   const currentCart = [...allFoods].filter((food) => {
     return food.isItInCart === true;
   });
-  const dispatch = useDispatch();
   const calculateTotalPrice = () => {
     let currentTotalPrice = 0;
     for (const food of currentCart) {
@@ -55,50 +53,10 @@ export default function MyShoppingCart() {
         <TableBody>
           {currentCart.map((food) => {
             return (
-              <TableRow
-                key={food.id}
-                sx={{
-                  '&:last-child td, &:last-child th': { border: 0 },
-                }}
-              >
-                <TableCell component="th" scope="row" align="center">
-                  {food.name}
-                </TableCell>
-                <TableCell align="center">{food.price} $</TableCell>
-                <TableCell align="center">
-                  <TextField
-                    type="number"
-                    InputProps={{
-                      inputProps: {
-                        max: 100,
-                        min: 1,
-                      },
-                    }}
-                    variant="standard"
-                    defaultValue={food.cartQuantity}
-                    onChange={(e) => {
-                      dispatch(
-                        changeCartQuantity({
-                          index: food.id,
-                          quantity: e.target.value,
-                        })
-                      );
-                      calculateTotalPrice();
-                    }}
-                    sx={{ width: '40px' }}
-                  />
-                </TableCell>
-                <TableCell align="center">
-                  <IconButton>
-                    <Favorite />
-                  </IconButton>
-                </TableCell>
-                <TableCell align="center">
-                  <IconButton>
-                    <ShoppingCart />
-                  </IconButton>
-                </TableCell>
-              </TableRow>
+              <SingleRow
+                food={food}
+                calculateTotalPrice={calculateTotalPrice}
+              />
             );
           })}
         </TableBody>
