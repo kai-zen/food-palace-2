@@ -11,6 +11,8 @@ const initialState = {
         isDeleted: false
     }],
     loggedInUser: [],
+    signInSnacks: [],
+    signUpSnacks: [],
 }
 export const usersSlice = createSlice({
     name: 'users',
@@ -21,10 +23,20 @@ export const usersSlice = createSlice({
                 return theUser.email === payload.payload.email
             })
             if (isEmailInSystem[0]) {
-                alert('email is already in the system')
+                state.signUpSnacks.push({
+                    id: state.signUpSnacks.length,
+                    severity: 'error',
+                    message: 'email is already in the system',
+                    open: 'true',
+                })
             } else {
                 state.users.push(payload.payload);
-                alert('You signed up, now you can sign in')
+                state.signUpSnacks.push({
+                    id: state.signUpSnacks.length,
+                    severity: 'success',
+                    message: 'You signed up, now you can sign in',
+                    open: 'true',
+                })
             }
         },
         signIn: (state, payload) => {
@@ -32,28 +44,51 @@ export const usersSlice = createSlice({
                 return theUser.email === payload.payload.email
             })
             if (!user[0]) {
-                alert('email is not in the system')
+                state.signInSnacks.push({
+                    id: state.signInSnacks.length,
+                    severity: 'warning',
+                    message: 'email is not in the system',
+                    open: 'true',
+                })
                 return
             } else {
                 if (user[0].isDeleted) {
-                    alert('You\'re banned')
+                    state.signInSnacks.push({
+                        id: state.signInSnacks.length,
+                        severity: 'error',
+                        message: 'You\'re banned',
+                        open: 'true',
+                    })
                     return
                 }
                 const isPasswordTrue = user[0].password === payload.payload.password;
                 if (!isPasswordTrue) {
-                    alert('password is not true')
+                    state.signInSnacks.push({
+                        id: state.signInSnacks.length,
+                        severity: 'warning',
+                        message: 'password is not true',
+                        open: 'true',
+                    })
                 } else {
                     state.loggedInUser[0] = user[0];
-                    alert('logged in');
-
                 }
             }
         },
         logout: (state) => {
             state.loggedInUser.length = 0
+        },
+        removeSignInSnack: (state, payload) => {
+            state.signInSnacks.filter(snack => {
+                return snack.id !== payload.id
+            })
+        },
+        removeSignUpSnack: (state, payload) => {
+            state.signUpSnacks.filter(snack => {
+                return snack.id !== payload.id
+            })
         }
     }
 })
 
 export default usersSlice.reducer;
-export const { signUp, signIn, logout } = usersSlice.actions;
+export const { signUp, signIn, logout, removeSignInSnack, removeSignUpSnack } = usersSlice.actions;

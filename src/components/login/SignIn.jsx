@@ -13,11 +13,14 @@ import Container from '@mui/material/Container';
 import { Link as RRDLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signIn } from '../../features/usersSlice';
+import InfoAlert from './InfoAlert';
+import MySnack from './MySnack';
 
 export default function SignIn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loggedInUser = useSelector((state) => state.users.loggedInUser);
+  const signInSnacks = useSelector((state) => state.users.signInSnacks);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -41,6 +44,10 @@ export default function SignIn() {
         alignItems: 'center',
       }}
     >
+      {signInSnacks.map((snack) => {
+        return <MySnack snack={snack} />;
+      })}
+      <InfoAlert />
       {loggedInUser[0] && navigate('/')}
       <CssBaseline />
       <Box

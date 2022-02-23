@@ -72,7 +72,6 @@ export const commentsSlice = createSlice({
     initialState,
     reducers: {
         addComment: (state, payload) => {
-            alert('hi')
             state.comments.push(payload.payload)
         }
     }

@@ -6,7 +6,7 @@ import {
   TextField,
 } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addComment } from '../../features/commentsSlice';
 
@@ -14,6 +14,7 @@ const AddCommentDialog = ({ open, setOpen, foodId, chip }) => {
   const dispatch = useDispatch();
   const loggedInUser = useSelector((state) => state.users.loggedInUser);
   const comments = useSelector((state) => state.comments.comments);
+  const [rateInForm, setRateInForm] = useState(0);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -25,7 +26,7 @@ const AddCommentDialog = ({ open, setOpen, foodId, chip }) => {
         author: loggedInUser[0].firstName,
         body: data.get('body'),
         chip,
-        rate: data.get('rate'),
+        rate: rateInForm,
         isDeleted: false,
       })
     );
@@ -50,7 +51,14 @@ const AddCommentDialog = ({ open, setOpen, foodId, chip }) => {
             name="body"
             autoFocus
           />
-          <Rating name="rate" precision={0.5} />
+          <Rating
+            name="rate"
+            precision={0.5}
+            value={rateInForm}
+            onChange={(e) => {
+              setRateInForm(e.target.value);
+            }}
+          />
           <Button
             type="submit"
             fullWidth

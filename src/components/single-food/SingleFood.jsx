@@ -14,10 +14,11 @@ const SingleFoodPage = () => {
 
   const allFoods = useSelector((state) => state.foods.allFoods);
   const comments = useSelector((state) => state.comments.comments);
+  const reversed = [...comments].reverse();
   const loggedInUser = useSelector((state) => state.users.loggedInUser);
 
   const food = allFoods[foodId];
-  const thisFoodComments = [...comments].filter((comment) => {
+  const thisFoodComments = [...reversed].filter((comment) => {
     return comment.foodId === food.id;
   });
   const [heartColor, setHeartColor] = useState(
@@ -79,6 +80,7 @@ const SingleFoodPage = () => {
         size="large"
         defaultValue={food.rate}
         precision={0.5}
+        readOnly
       />
       <div style={{ margin: '0 10px 10px' }}>
         <IconButton

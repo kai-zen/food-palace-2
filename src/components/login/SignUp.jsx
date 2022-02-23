@@ -12,6 +12,7 @@ import Container from '@mui/material/Container';
 import { Link as RRDLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../../features/usersSlice';
+import MySnack from './MySnack';
 
 export default function SignUp() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ export default function SignUp() {
       })
     );
   };
+  const signUpSnacks = useSelector((state) => state.users.signUpSnacks);
   return (
     <Container
       component="main"
@@ -43,6 +45,9 @@ export default function SignUp() {
         alignItems: 'center',
       }}
     >
+      {signUpSnacks.map((snack) => {
+        return <MySnack snack={snack} />;
+      })}
       <CssBaseline />
       <Box
         sx={{
