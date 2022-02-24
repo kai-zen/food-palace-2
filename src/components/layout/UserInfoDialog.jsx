@@ -73,6 +73,7 @@ export function UserInfoDialog({ open, setOpen }) {
           <Button
             variant="contained"
             onClick={() => {
+              navigate('/admin-panel');
               setOpen(false);
             }}
             fullWidth

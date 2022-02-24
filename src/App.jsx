@@ -4,6 +4,7 @@ import { amber, red } from '@mui/material/colors';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import MainPanel from './components/admin-panel/MainPanel';
 import Favorites from './components/favorites/Favorites';
 import MyLayout from './components/layout/MyLayout';
 import SignIn from './components/login/SignIn';
@@ -43,6 +44,10 @@ const App = () => {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/shopping-cart" element={<MyShoppingCart />} />
+          <Route path="/admin-panel" element={<MainPanel />} />
+          <Route path="/admin-panel/foods" element={<MainPanel />} />
+          <Route path="/admin-panel/users" element={<MainPanel />} />
+          <Route path="/admin-panel/comments" element={<MainPanel />} />
         </Routes>
       </ThemeProvider>
     </Router>
