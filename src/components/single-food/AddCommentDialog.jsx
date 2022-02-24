@@ -10,26 +10,27 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addComment } from '../../features/commentsSlice';
 
-const AddCommentDialog = ({ open, setOpen, foodId, chip }) => {
+const AddCommentDialog = ({ open, setOpen, foodId, chip, setOpenSnack }) => {
   const dispatch = useDispatch();
   const loggedInUser = useSelector((state) => state.users.loggedInUser);
   const comments = useSelector((state) => state.comments.comments);
   const [rateInForm, setRateInForm] = useState(0);
+  const [body, setBody] = useState('');
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
     setOpen(false);
     dispatch(
       addComment({
         id: comments.length,
         foodId,
         author: loggedInUser[0].firstName,
-        body: data.get('body'),
+        body: body,
         chip,
         rate: rateInForm,
         isDeleted: false,
       })
     );
+    setOpenSnack(true);
   };
   return (
     <Dialog
@@ -50,6 +51,10 @@ const AddCommentDialog = ({ open, setOpen, foodId, chip }) => {
             label="Comment text"
             name="body"
             autoFocus
+            value={body}
+            onChange={(e) => {
+              setBody(e.target.value);
+            }}
           />
           <Rating
             name="rate"
@@ -64,6 +69,7 @@ const AddCommentDialog = ({ open, setOpen, foodId, chip }) => {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            disabled={body.length === 0}
           >
             Add comment
           </Button>

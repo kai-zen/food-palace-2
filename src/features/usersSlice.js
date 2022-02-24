@@ -46,7 +46,7 @@ export const usersSlice = createSlice({
             if (!user[0]) {
                 state.signInSnacks.push({
                     id: state.signInSnacks.length,
-                    severity: 'warning',
+                    severity: 'error',
                     message: 'email is not in the system',
                     open: 'true',
                 })
@@ -65,7 +65,7 @@ export const usersSlice = createSlice({
                 if (!isPasswordTrue) {
                     state.signInSnacks.push({
                         id: state.signInSnacks.length,
-                        severity: 'warning',
+                        severity: 'error',
                         message: 'password is not true',
                         open: 'true',
                     })
@@ -77,18 +77,14 @@ export const usersSlice = createSlice({
         logout: (state) => {
             state.loggedInUser.length = 0
         },
-        removeSignInSnack: (state, payload) => {
-            state.signInSnacks.filter(snack => {
-                return snack.id !== payload.id
-            })
+        emptySignInSnack: (state) => {
+            state.signInSnacks.length = 0;
         },
-        removeSignUpSnack: (state, payload) => {
-            state.signUpSnacks.filter(snack => {
-                return snack.id !== payload.id
-            })
+        emptySignUpSnack: (state) => {
+            state.signUpSnacks.length = 0;
         }
     }
 })
 
 export default usersSlice.reducer;
-export const { signUp, signIn, logout, removeSignInSnack, removeSignUpSnack } = usersSlice.actions;
+export const { signUp, signIn, logout, emptySignInSnack, emptySignUpSnack } = usersSlice.actions;

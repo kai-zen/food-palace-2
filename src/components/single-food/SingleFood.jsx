@@ -1,7 +1,15 @@
-import { Paper, Rating, Typography, IconButton, Button } from '@mui/material';
+import {
+  Paper,
+  Rating,
+  Typography,
+  IconButton,
+  Button,
+  Alert,
+  Snackbar,
+} from '@mui/material';
 import React, { useState } from 'react';
 import SingleComment from '../tabs/comments-tab/SingleComment';
-import { Favorite, ShoppingCart } from '@mui/icons-material';
+import { Close, Favorite, ShoppingCart } from '@mui/icons-material';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleToCart, toggleToFavorites } from '../../features/foodsSlice';
@@ -43,6 +51,7 @@ const SingleFoodPage = () => {
   };
 
   const [open, setOpen] = useState(false);
+  const [openSnack, setOpenSnack] = useState(false);
 
   return (
     <Paper
@@ -117,12 +126,44 @@ const SingleFoodPage = () => {
           Leave a comment about this food
         </Button>
         <AddCommentDialog
+          setOpenSnack={setOpenSnack}
           setOpen={setOpen}
           open={open}
           foodId={food.id}
           chip={food.name}
         />
       </div>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        open={openSnack}
+        autoHideDuration={5000}
+        onClose={() => {
+          setOpenSnack(false);
+        }}
+        action={
+          <IconButton
+            size="small"
+            aria-label="close"
+            color="inherit"
+            onClick={() => {
+              setOpenSnack(false);
+            }}
+          >
+            <Close fontSize="small" />
+          </IconButton>
+        }
+      >
+        <Alert
+          variant="filled"
+          onClose={() => {
+            setOpenSnack(false);
+          }}
+          severity="success"
+          sx={{ width: '100%' }}
+        >
+          Thanks for your comment
+        </Alert>
+      </Snackbar>
       {thisFoodComments.map((comment) => {
         return <SingleComment comment={comment} />;
       })}

@@ -2,10 +2,7 @@ import { Close } from '@mui/icons-material';
 import { Alert, IconButton, Snackbar } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {
-  removeSignInSnack,
-  removeSignUpSnack,
-} from '../../features/usersSlice';
+import { emptySignInSnack, emptySignUpSnack } from '../../features/usersSlice';
 
 const MySnack = ({ snack }) => {
   const dispatch = useDispatch();
@@ -16,8 +13,8 @@ const MySnack = ({ snack }) => {
       return;
     }
     setOpen(false);
-    dispatch(removeSignInSnack(snack.id));
-    dispatch(removeSignUpSnack(snack.id));
+    dispatch(emptySignUpSnack());
+    dispatch(emptySignInSnack());
   };
   return (
     <Snackbar

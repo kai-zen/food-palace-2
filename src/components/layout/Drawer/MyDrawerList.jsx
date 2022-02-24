@@ -150,6 +150,7 @@ const MyDrawerList = () => {
       <FormControlLabel
         control={
           <MaterialUISwitch
+            defaultChecked
             sx={{ m: 1, ml: 13, mt: 3 }}
             onClick={() => {
               dispatch(changeTheme());
