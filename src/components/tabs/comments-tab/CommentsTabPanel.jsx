@@ -8,7 +8,7 @@ const CommentsTabPanel = () => {
   return (
     <>
       {reversed.map((comment) => {
-        return <SingleComment comment={comment} />;
+        return <SingleComment comment={comment} key={comment.id} />;
       })}
     </>
   );

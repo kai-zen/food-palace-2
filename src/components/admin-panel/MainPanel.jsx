@@ -9,8 +9,8 @@ const MainPanel = () => {
   return (
     <Paper
       sx={{
-        width: { md: 'calc(80% - 260px)' },
-        ml: { md: '260px' },
+        width: { sm: 'calc(80% - 260px)' },
+        ml: { sm: '260px' },
         p: '138px 10% 50px 10%',
         display: 'flex',
         flexDirection: 'column',

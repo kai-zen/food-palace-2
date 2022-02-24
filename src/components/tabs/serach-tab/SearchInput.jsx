@@ -5,7 +5,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 
-export default function SearchInput({ allFoods, setFilteredFoods }) {
+export default function SearchInput({ allFoods, setFilteredFoods, bgColor }) {
   const handleSearch = (word) => {
     const notFilteredFoods = [...allFoods];
     let afterFilterFoods = notFilteredFoods.filter((notFilteredFood) =>
@@ -27,6 +27,7 @@ export default function SearchInput({ allFoods, setFilteredFoods }) {
         '&:hover': {
           opacity: '1',
         },
+        bgcolor: bgColor,
       }}
     >
       <InputBase

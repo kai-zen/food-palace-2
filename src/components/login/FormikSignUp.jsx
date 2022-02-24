@@ -26,7 +26,7 @@ const FormikSignUp = () => {
     if (!values.firstName) {
       errors.firstName = 'Required';
     } else if (values.firstName.length > 15) {
-      errors.password = 'Must be 15 characters or less';
+      errors.firstName = 'Must be 15 characters or less';
     }
     return errors;
   };

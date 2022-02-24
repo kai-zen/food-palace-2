@@ -32,7 +32,7 @@ export default function MyShoppingCart() {
       sx={{
         width: { sm: 'calc(100% - 260px)' },
         ml: { sm: '260px' },
-        pt: '68px',
+        pt: '88px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -40,6 +40,9 @@ export default function MyShoppingCart() {
       }}
       square
     >
+      <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+        Shopping cart
+      </Typography>
       <Table sx={{ maxWidth: '90%', m: 3 }} aria-label="simple table">
         <TableHead>
           <TableRow>
