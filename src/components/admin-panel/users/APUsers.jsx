@@ -1,5 +1,6 @@
 import { ArrowBack } from '@mui/icons-material';
 import {
+  Button,
   IconButton,
   Paper,
   Table,
@@ -15,6 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import APSingleUserRow from './APSingleUserRow';
 
 const APUsers = () => {
+  const loggedInUser = useSelector((state) => state.users.loggedInUser);
   const navigate = useNavigate();
   const allUsers = useSelector((state) => state.users.users);
 
@@ -30,33 +32,46 @@ const APUsers = () => {
         minHeight: 'calc(100vh - 148px)',
       }}
     >
-      <Typography variant="h3" sx={{ mb: '20px' }}>
-        <IconButton
-          size="large"
+      {loggedInUser[0] && loggedInUser[0].isAdmin ? (
+        <>
+          <Typography variant="h3" sx={{ mb: '20px' }}>
+            <IconButton
+              size="large"
+              onClick={() => {
+                navigate('/admin-panel');
+              }}
+            >
+              <ArrowBack color="primary" fontSize="inherit" />
+            </IconButton>
+            Edit users panel
+          </Typography>
+          <Table sx={{ maxWidth: '90%', m: 3 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">Firstname</TableCell>
+                <TableCell align="center">Lastname</TableCell>
+                <TableCell align="center">Email</TableCell>
+                <TableCell align="center">Admin</TableCell>
+                <TableCell align="center">Delete</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {allUsers.map((user) => {
+                return <APSingleUserRow user={user} key={user.id} />;
+              })}
+            </TableBody>
+          </Table>
+        </>
+      ) : (
+        <Button
           onClick={() => {
-            navigate('/admin-panel');
+            navigate('/');
           }}
+          variant="outlined"
         >
-          <ArrowBack color="primary" fontSize="inherit" />
-        </IconButton>
-        Edit users panel
-      </Typography>
-      <Table sx={{ maxWidth: '90%', m: 3 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="center">Firstname</TableCell>
-            <TableCell align="center">Lastname</TableCell>
-            <TableCell align="center">Email</TableCell>
-            <TableCell align="center">Admin</TableCell>
-            <TableCell align="center">Delete</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {allUsers.map((user) => {
-            return <APSingleUserRow user={user} key={user.id} />;
-          })}
-        </TableBody>
-      </Table>
+          Acces denied
+        </Button>
+      )}
     </Paper>
   );
 };

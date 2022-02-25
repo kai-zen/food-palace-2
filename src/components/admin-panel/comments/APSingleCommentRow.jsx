@@ -1,7 +1,22 @@
 import { Delete } from '@mui/icons-material';
 import { IconButton, TableCell, TableRow } from '@mui/material';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { toggleDeleteComment } from '../../../features/commentsSlice';
 
 const APSingleCommentRow = ({ comment }) => {
+  const dispatch = useDispatch();
+  const [deleteColor, setDeleteColor] = useState(
+    comment.isDeleted ? 'error' : 'action'
+  );
+  const deleteColorToggler = () => {
+    if (deleteColor === 'action') {
+      setDeleteColor('error');
+    } else {
+      setDeleteColor('action');
+    }
+  };
+
   return (
     <TableRow
       key={comment.id}
@@ -15,8 +30,13 @@ const APSingleCommentRow = ({ comment }) => {
       <TableCell align="center">{comment.chip}</TableCell>
       <TableCell align="center">{comment.body}</TableCell>
       <TableCell align="center">
-        <IconButton>
-          <Delete color="error" />
+        <IconButton
+          onClick={() => {
+            deleteColorToggler();
+            dispatch(toggleDeleteComment(comment));
+          }}
+        >
+          <Delete color={deleteColor} />
         </IconButton>
       </TableCell>
     </TableRow>
