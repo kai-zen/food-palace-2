@@ -25,9 +25,24 @@ export const foodsSlice = createSlice({
         },
         changeCartQuantity: (state, payload) => {
             state.allFoods[payload.payload.index].cartQuantity = payload.payload.quantity;
+        },
+        addFood: (state, payload) => {
+            state.allFoods.push(payload.payload)
+        },
+        toggleDeleteFood: (state, payload) => {
+            const index = state.allFoods.findIndex(food => {
+                return food.id === payload.payload.id
+            });
+            state.allFoods[index].isDeleted = !state.allFoods[index].isDeleted
+        },
+        editFood: (state, payload) => {
+            const index = state.allFoods.findIndex(food => {
+                return food.id === payload.payload.id
+            });
+            state.allFoods[index] = payload.payload
         }
     }
 })
 
 export default foodsSlice.reducer;
-export const { toggleToFavorites, toggleToCart, changeCartQuantity } = foodsSlice.actions;
+export const { toggleToFavorites, toggleToCart, changeCartQuantity, addFood, toggleDeleteFood, editFood } = foodsSlice.actions;

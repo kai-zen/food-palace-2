@@ -11,7 +11,7 @@ import {
   Typography,
 } from '@mui/material';
 import { amber } from '@mui/material/colors';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import SearchInput from '../../tabs/serach-tab/SearchInput';
@@ -27,6 +27,9 @@ const APFoods = () => {
   const [openAdd, setOpenAdd] = useState(false);
   const [editingFood, setEditingFood] = useState(allFoods[0]);
 
+  useEffect(() => {
+    setFilteredFoods(allFoods);
+  }, [allFoods]);
   return (
     <Paper
       sx={{

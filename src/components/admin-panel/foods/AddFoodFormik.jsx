@@ -11,8 +11,13 @@ import {
 import { Box } from '@mui/system';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addFood } from '../../../features/foodsSlice';
 
 const AddFoodFormik = () => {
+  const dispatch = useDispatch();
+  const allFoods = useSelector((state) => state.foods.allFoods);
   const validate = (values) => {
     const errors = {};
     if (!values.name) {
@@ -35,10 +40,36 @@ const AddFoodFormik = () => {
     validate,
     onSubmit: (values, { setSubmitting }) => {
       setTimeout(() => {
+        let photo = localStorage.getItem('uploadedImage');
+        dispatch(
+          addFood({
+            id: allFoods.length,
+            name: values.name,
+            price: Number(values.price),
+            category: values.category,
+            orderQuantity: 0,
+            rate: 0,
+            isItInFav: false,
+            isItInCart: false,
+            deleted: false,
+            cartQuantity: 1,
+            image: photo,
+          })
+        );
         setSubmitting(false);
       }, 400);
     },
   });
+  const handleUploadedPhoto = () => {
+    let photoFile = document.getElementById('addPhoto').files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(photoFile);
+
+    reader.addEventListener('load', () => {
+      localStorage.setItem('uploadedImage', reader.result);
+    });
+  };
+
   return (
     <Box
       component="form"
@@ -93,10 +124,10 @@ const AddFoodFormik = () => {
         error={formik.touched.price && Boolean(formik.errors.price)}
         helperText={formik.touched.price && formik.errors.price}
       />
-      <label htmlFor="contained-button-file">
+      <label htmlFor="addPhoto" onChange={handleUploadedPhoto}>
         <Input
           accept="image/*"
-          id="contained-button-file"
+          id="addPhoto"
           multiple
           type="file"
           sx={{ display: 'none' }}
