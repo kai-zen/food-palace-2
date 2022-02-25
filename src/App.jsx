@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import APFoods from './components/admin-panel/foods/APFoods';
 import MainPanel from './components/admin-panel/MainPanel';
+import APUsers from './components/admin-panel/users/APUsers';
 import Favorites from './components/favorites/Favorites';
 import MyLayout from './components/layout/MyLayout';
 import SignIn from './components/login/SignIn';
@@ -47,7 +48,7 @@ const App = () => {
           <Route path="/shopping-cart" element={<MyShoppingCart />} />
           <Route path="/admin-panel" element={<MainPanel />} />
           <Route path="/admin-panel/foods" element={<APFoods />} />
-          <Route path="/admin-panel/users" element={<MainPanel />} />
+          <Route path="/admin-panel/users" element={<APUsers />} />
           <Route path="/admin-panel/comments" element={<MainPanel />} />
         </Routes>
       </ThemeProvider>
