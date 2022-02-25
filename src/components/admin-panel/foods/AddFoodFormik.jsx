@@ -15,7 +15,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { addFood } from '../../../features/foodsSlice';
 
-const AddFoodFormik = () => {
+const AddFoodFormik = ({ setOpen }) => {
   const dispatch = useDispatch();
   const allFoods = useSelector((state) => state.foods.allFoods);
   const validate = (values) => {
@@ -57,6 +57,7 @@ const AddFoodFormik = () => {
           })
         );
         setSubmitting(false);
+        setOpen(false);
       }, 400);
     },
   });

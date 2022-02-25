@@ -10,7 +10,7 @@ const AddFoodDialog = ({ open, setOpen }) => {
       open={open}
     >
       <DialogContent>
-        <AddFoodFormik />
+        <AddFoodFormik setOpen={setOpen} />
       </DialogContent>
     </Dialog>
   );
