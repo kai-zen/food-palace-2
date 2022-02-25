@@ -21,7 +21,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { Link as RRDLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeTheme } from '../../../features/themeSlice';
 import { logout } from '../../../features/usersSlice';
 
@@ -74,6 +74,7 @@ const MaterialUISwitch = styled(Switch)(() => ({
 
 const MyDrawerList = () => {
   const dispatch = useDispatch();
+  const currentTheme = useSelector((state) => state.theme.currentTheme);
   return (
     <div>
       <Toolbar />
@@ -150,7 +151,7 @@ const MyDrawerList = () => {
       <FormControlLabel
         control={
           <MaterialUISwitch
-            defaultChecked
+            defaultChecked={currentTheme === 'dark'}
             sx={{ m: 1, ml: 13, mt: 3 }}
             onClick={() => {
               dispatch(changeTheme());

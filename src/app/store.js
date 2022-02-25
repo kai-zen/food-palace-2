@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from './../features/themeSlice'
 import foodsReducer from './../features/foodsSlice'
-import usersReducer from './../features/usersSlice'
+import usersReducer, { usersMiddleware } from './../features/usersSlice'
 import commentsReducer from './../features/commentsSlice'
 
 export const store = configureStore({
@@ -10,5 +10,6 @@ export const store = configureStore({
         foods: foodsReducer,
         users: usersReducer,
         comments: commentsReducer,
-    }
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(usersMiddleware)
 })
