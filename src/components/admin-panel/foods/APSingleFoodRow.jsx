@@ -1,7 +1,7 @@
 import { Delete, Edit } from '@mui/icons-material';
 import { IconButton, TableCell, TableRow } from '@mui/material';
 
-const APSingleFoodRow = ({ food }) => {
+const APSingleFoodRow = ({ food, setOpen, setEditingFood }) => {
   return (
     <TableRow
       key={food.id}
@@ -15,7 +15,12 @@ const APSingleFoodRow = ({ food }) => {
       <TableCell align="center">{food.price} $</TableCell>
       <TableCell align="center">{food.category}</TableCell>
       <TableCell align="center">
-        <IconButton>
+        <IconButton
+          onClick={() => {
+            setEditingFood(food);
+            setOpen(true);
+          }}
+        >
           <Edit color="warning" />
         </IconButton>
       </TableCell>

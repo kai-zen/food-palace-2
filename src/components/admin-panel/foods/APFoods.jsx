@@ -15,11 +15,14 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import SearchInput from '../../tabs/serach-tab/SearchInput';
 import APSingleFoodRow from './APSingleFoodRow';
+import EditFoodDialog from './EditFoodDialog';
 
 const APFoods = () => {
   const navigate = useNavigate();
   const allFoods = useSelector((state) => state.foods.allFoods);
   const [filteredFoods, setFilteredFoods] = useState(allFoods);
+  const [open, setOpen] = useState(false);
+  const [editingFood, setEditingFood] = useState(allFoods[0]);
 
   return (
     <Paper
@@ -61,10 +64,18 @@ const APFoods = () => {
         </TableHead>
         <TableBody>
           {filteredFoods.map((food) => {
-            return <APSingleFoodRow food={food} key={food.id} />;
+            return (
+              <APSingleFoodRow
+                food={food}
+                key={food.id}
+                setOpen={setOpen}
+                setEditingFood={setEditingFood}
+              />
+            );
           })}
         </TableBody>
       </Table>
+      <EditFoodDialog setOpen={setOpen} open={open} food={editingFood} />
     </Paper>
   );
 };
