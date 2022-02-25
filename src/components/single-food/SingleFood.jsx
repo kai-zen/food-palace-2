@@ -21,7 +21,10 @@ const SingleFoodPage = () => {
   const navigate = useNavigate();
 
   const allFoods = useSelector((state) => state.foods.allFoods);
-  const comments = useSelector((state) => state.comments.comments);
+  let comments = useSelector((state) => state.comments.comments);
+  comments = comments.filter((comment) => {
+    return !comment.isDeleted;
+  });
   const reversed = [...comments].reverse();
   const loggedInUser = useSelector((state) => state.users.loggedInUser);
 
