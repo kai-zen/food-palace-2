@@ -4,6 +4,7 @@ import { amber, red } from '@mui/material/colors';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import APComments from './components/admin-panel/comments/APComments';
 import APFoods from './components/admin-panel/foods/APFoods';
 import MainPanel from './components/admin-panel/MainPanel';
 import APUsers from './components/admin-panel/users/APUsers';
@@ -49,7 +50,7 @@ const App = () => {
           <Route path="/admin-panel" element={<MainPanel />} />
           <Route path="/admin-panel/foods" element={<APFoods />} />
           <Route path="/admin-panel/users" element={<APUsers />} />
-          <Route path="/admin-panel/comments" element={<MainPanel />} />
+          <Route path="/admin-panel/comments" element={<APComments />} />
         </Routes>
       </ThemeProvider>
     </Router>

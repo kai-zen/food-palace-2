@@ -12,11 +12,12 @@ import {
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import APSingleUserRow from './APSingleUserRow';
+import APSingleCommentRow from './APSingleCommentRow';
 
-const APUsers = () => {
+const APComments = () => {
   const navigate = useNavigate();
-  const allUsers = useSelector((state) => state.users.users);
+  const allComments = useSelector((state) => state.comments.comments);
+  const reversed = [...allComments].reverse();
 
   return (
     <Paper
@@ -39,21 +40,20 @@ const APUsers = () => {
         >
           <ArrowBack color="primary" fontSize="inherit" />
         </IconButton>
-        Edit users panel
+        Edit comments panel
       </Typography>
       <Table sx={{ maxWidth: '90%', m: 3 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Firstname</TableCell>
-            <TableCell align="center">Lastname</TableCell>
-            <TableCell align="center">Email</TableCell>
-            <TableCell align="center">Admin</TableCell>
+            <TableCell align="center">Author</TableCell>
+            <TableCell align="center">Food</TableCell>
+            <TableCell align="center">Body</TableCell>
             <TableCell align="center">Delete</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {allUsers.map((user) => {
-            return <APSingleUserRow user={user} key={user.id} />;
+          {reversed.map((comment) => {
+            return <APSingleCommentRow comment={comment} key={comment.id} />;
           })}
         </TableBody>
       </Table>
@@ -61,4 +61,4 @@ const APUsers = () => {
   );
 };
 
-export default APUsers;
+export default APComments;
