@@ -4,7 +4,10 @@ import CategoriesCardsGrid from './CategoriesCardGrid';
 import ChooseInput from './ChooseInput';
 
 const CategoriesTabPanel = () => {
-  const allFoods = useSelector((state) => state.foods.allFoods);
+  let allFoods = useSelector((state) => state.foods.allFoods);
+  allFoods = allFoods.filter((food) => {
+    return !food.deleted;
+  });
   const [selectedCat, setSelectedCat] = useState('pizza');
 
   let foodsToShow = [...allFoods].filter(

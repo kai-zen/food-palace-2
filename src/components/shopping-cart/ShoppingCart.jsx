@@ -11,7 +11,10 @@ import SingleRow from './SingleRow';
 
 export default function MyShoppingCart() {
   const [totalPrice, setTotalPrice] = useState(0);
-  const allFoods = useSelector((state) => state.foods.allFoods);
+  let allFoods = useSelector((state) => state.foods.allFoods);
+  allFoods = allFoods.filter((food) => {
+    return !food.deleted;
+  });
   const currentCart = [...allFoods].filter((food) => {
     return food.isItInCart === true;
   });

@@ -5,7 +5,10 @@ import SearchInput from './SearchInput';
 import SearchSingleCard from './SingleCard';
 
 const SearchTabPanel = () => {
-  const allFoods = useSelector((state) => state.foods.allFoods);
+  let allFoods = useSelector((state) => state.foods.allFoods);
+  allFoods = allFoods.filter((food) => {
+    return !food.deleted;
+  });
   const [filteredFoods, setFilteredFoods] = useState([]);
 
   const whatToRender = () => {

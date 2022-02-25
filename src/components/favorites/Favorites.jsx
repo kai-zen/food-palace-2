@@ -6,7 +6,10 @@ import { useSelector } from 'react-redux';
 import CategoriesCardsGrid from '../tabs/categories-tab/CategoriesCardGrid';
 
 const Favorites = () => {
-  const allFoods = useSelector((state) => state.foods.allFoods);
+  let allFoods = useSelector((state) => state.foods.allFoods);
+  allFoods = allFoods.filter((food) => {
+    return !food.deleted;
+  });
   const favorites = [...allFoods].filter((food) => {
     return food.isItInFav === true;
   });

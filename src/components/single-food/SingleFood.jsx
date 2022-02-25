@@ -67,6 +67,7 @@ const SingleFoodPage = () => {
         alignItems: 'center',
       }}
     >
+      {food.deleted && navigate('/')}
       <img
         src={`${food.image}`}
         alt={food.name}
