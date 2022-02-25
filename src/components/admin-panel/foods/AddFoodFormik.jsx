@@ -1,3 +1,4 @@
+import { PhotoCamera } from '@mui/icons-material';
 import {
   Button,
   TextField,
@@ -5,12 +6,13 @@ import {
   Select,
   MenuItem,
   FormHelperText,
+  Input,
 } from '@mui/material';
 import { Box } from '@mui/system';
 import { useFormik } from 'formik';
 import React from 'react';
 
-const EditFoodFormik = ({ food }) => {
+const AddFoodFormik = () => {
   const validate = (values) => {
     const errors = {};
     if (!values.name) {
@@ -26,9 +28,9 @@ const EditFoodFormik = ({ food }) => {
   };
   const formik = useFormik({
     initialValues: {
-      name: food.name,
-      category: food.category,
-      price: food.price,
+      name: '',
+      category: '',
+      price: 0,
     },
     validate,
     onSubmit: (values, { setSubmitting }) => {
@@ -91,8 +93,27 @@ const EditFoodFormik = ({ food }) => {
         error={formik.touched.price && Boolean(formik.errors.price)}
         helperText={formik.touched.price && formik.errors.price}
       />
+      <label htmlFor="contained-button-file">
+        <Input
+          accept="image/*"
+          id="contained-button-file"
+          multiple
+          type="file"
+          sx={{ display: 'none' }}
+        />
+        <Button
+          variant="contained"
+          component="span"
+          fullWidth
+          endIcon={<PhotoCamera />}
+          sx={{ mt: '15px' }}
+        >
+          Upload
+        </Button>
+      </label>
       <Button
         type="submit"
+        color="secondary"
         fullWidth
         variant="contained"
         sx={{ mt: 3, mb: 2 }}
@@ -105,4 +126,4 @@ const EditFoodFormik = ({ food }) => {
   );
 };
 
-export default EditFoodFormik;
+export default AddFoodFormik;

@@ -1,5 +1,6 @@
 import { ArrowBack } from '@mui/icons-material';
 import {
+  Button,
   IconButton,
   Paper,
   Table,
@@ -14,6 +15,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import SearchInput from '../../tabs/serach-tab/SearchInput';
+import AddFoodDialog from './AddFoodDialog';
 import APSingleFoodRow from './APSingleFoodRow';
 import EditFoodDialog from './EditFoodDialog';
 
@@ -22,6 +24,7 @@ const APFoods = () => {
   const allFoods = useSelector((state) => state.foods.allFoods);
   const [filteredFoods, setFilteredFoods] = useState(allFoods);
   const [open, setOpen] = useState(false);
+  const [openAdd, setOpenAdd] = useState(false);
   const [editingFood, setEditingFood] = useState(allFoods[0]);
 
   return (
@@ -52,6 +55,16 @@ const APFoods = () => {
         setFilteredFoods={setFilteredFoods}
         bgColor={amber[400]}
       />
+      <Button
+        variant="contained"
+        color="secondary"
+        sx={{ mt: '20px' }}
+        onClick={() => {
+          setOpenAdd(true);
+        }}
+      >
+        Add new food
+      </Button>
       <Table sx={{ maxWidth: '90%', m: 3 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -75,6 +88,7 @@ const APFoods = () => {
           })}
         </TableBody>
       </Table>
+      <AddFoodDialog setOpen={setOpenAdd} open={openAdd} />
       <EditFoodDialog setOpen={setOpen} open={open} food={editingFood} />
     </Paper>
   );
