@@ -33,7 +33,7 @@ export const foodsSlice = createSlice({
             const index = state.allFoods.findIndex(food => {
                 return food.id === payload.payload.id
             });
-            state.allFoods[index].isDeleted = !state.allFoods[index].isDeleted
+            state.allFoods[index].deleted = !state.allFoods[index].deleted
         },
         editFood: (state, payload) => {
             const index = state.allFoods.findIndex(food => {

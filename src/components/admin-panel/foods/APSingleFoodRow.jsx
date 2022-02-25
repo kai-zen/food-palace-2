@@ -1,7 +1,21 @@
 import { Delete, Edit } from '@mui/icons-material';
 import { IconButton, TableCell, TableRow } from '@mui/material';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { toggleDeleteFood } from '../../../features/foodsSlice';
 
 const APSingleFoodRow = ({ food, setOpen, setEditingFood }) => {
+  const dispatch = useDispatch();
+  const [deleteColor, setDeleteColor] = useState(
+    food.deleted ? 'error' : 'action'
+  );
+  const deleteColorToggler = () => {
+    if (deleteColor === 'action') {
+      setDeleteColor('error');
+    } else {
+      setDeleteColor('action');
+    }
+  };
   return (
     <TableRow
       key={food.id}
@@ -25,8 +39,13 @@ const APSingleFoodRow = ({ food, setOpen, setEditingFood }) => {
         </IconButton>
       </TableCell>
       <TableCell align="center">
-        <IconButton>
-          <Delete color="error" />
+        <IconButton
+          onClick={() => {
+            deleteColorToggler();
+            dispatch(toggleDeleteFood(food));
+          }}
+        >
+          <Delete color={deleteColor} />
         </IconButton>
       </TableCell>
     </TableRow>
