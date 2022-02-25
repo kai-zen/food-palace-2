@@ -82,9 +82,21 @@ export const usersSlice = createSlice({
         },
         emptySignUpSnack: (state) => {
             state.signUpSnacks.length = 0;
-        }
+        },
+        toggleDeleteUser: (state, payload) => {
+            const index = state.users.findIndex(user => {
+                return user.id === payload.payload.id
+            });
+            state.users[index].isDeleted = !state.users[index].isDeleted
+        },
+        toggleAdminUser: (state, payload) => {
+            const index = state.users.findIndex(user => {
+                return user.id === payload.payload.id
+            });
+            state.users[index].isAdmin = !state.users[index].isAdmin
+        },
     }
 })
 
 export default usersSlice.reducer;
-export const { signUp, signIn, logout, emptySignInSnack, emptySignUpSnack } = usersSlice.actions;
+export const { signUp, signIn, logout, emptySignInSnack, emptySignUpSnack, toggleDeleteUser } = usersSlice.actions;
