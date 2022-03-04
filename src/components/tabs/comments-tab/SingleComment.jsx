@@ -17,16 +17,20 @@ export default function SingleComment({ comment }) {
         width: '90%',
       }}
     >
-      <Avatar sx={{ width: 56, height: 56 }}>{comment.author[0]}</Avatar>
       <CardContent sx={{ width: '100%' }}>
-        <Typography variant="h6">{comment.author}</Typography>
+        <div style={{ display: 'flex', width: '100%', alignItems: 'center' }}>
+          <Avatar sx={{ width: 56, height: 56, mr: '15px' }}>
+            {comment.author[0]}
+          </Avatar>
+          <Typography variant="h6">{comment.author}</Typography>
+        </div>
         <br />
         <Typography>{comment.body}</Typography>
         <br />
         <div
           style={{
             width: '100%',
-            padding: '5px 15px',
+            padding: '5px',
             display: 'flex',
             justifyContent: 'space-between',
           }}
