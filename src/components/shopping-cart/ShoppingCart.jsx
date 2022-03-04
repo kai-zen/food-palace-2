@@ -39,7 +39,9 @@ export default function MyShoppingCart() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        minHeight: 'calc(100vh - 68px)',
+        height: 'calc(100vh - 68px)',
+        overflowY: 'auto',
+        overflowX: 'hidden',
       }}
       square
     >
