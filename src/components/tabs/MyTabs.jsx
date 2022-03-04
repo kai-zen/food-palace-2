@@ -71,7 +71,7 @@ const MyTabs = ({ activeTab }) => {
             variant="fullWidth"
             aria-label="full width tabs example"
           >
-            <Tab label="Search food" {...a11yProps(0)} />
+            <Tab label="Search" {...a11yProps(0)} />
             <Tab label="Categories" {...a11yProps(1)} />
             <Tab label="Comments" {...a11yProps(2)} />
           </Tabs>

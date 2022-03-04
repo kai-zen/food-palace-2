@@ -55,7 +55,7 @@ const MyAppBar = ({ handleDrawerToggle }) => {
           sx={{ flexGrow: 1, fontWeight: 'bold', cursor: 'pointer' }}
           onClick={() => navigate('/')}
         >
-          Food Palace 2
+          Food Palace
         </Typography>
         <RRDLink to="/shopping-cart">
           <IconButton
