@@ -24,6 +24,7 @@ const SingleRow = ({ food, calculateTotalPrice }) => {
     <TableRow
       key={food.id}
       sx={{
+        maxWidth: '100%',
         '&:last-child td, &:last-child th': { border: 0 },
       }}
     >
