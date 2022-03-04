@@ -1,6 +1,6 @@
 export const allFoodsInfo = [{
         id: 0,
-        name: 'Marghrita pizza',
+        name: 'Margherita',
         price: 5.50,
         category: 'Pizza',
         orderQuantity: 125,
@@ -13,7 +13,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 1,
-        name: 'Peppeoni pizza',
+        name: 'Pepperoni',
         price: 7.50,
         category: 'Pizza',
         orderQuantity: 205,
@@ -26,7 +26,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 2,
-        name: 'Garlic and steak pizza',
+        name: 'Steak pizza',
         price: 9.50,
         category: 'Pizza',
         orderQuantity: 177,
@@ -39,7 +39,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 3,
-        name: 'Extra cheese pizza',
+        name: 'Cheese pizza',
         price: 6.50,
         category: 'Pizza',
         orderQuantity: 144,
@@ -65,7 +65,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 5,
-        name: 'Meat lover pizza',
+        name: 'Meat lover',
         price: 8.50,
         category: 'Pizza',
         orderQuantity: 200,
@@ -78,7 +78,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 6,
-        name: 'BBQ chicken pizza',
+        name: 'Chicken pizza',
         price: 7.00,
         category: 'Pizza',
         orderQuantity: 163,
@@ -117,7 +117,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 9,
-        name: 'Chicken alfredo pasta',
+        name: 'Alfredo pasta',
         price: 7.00,
         category: 'Pasta',
         orderQuantity: 233,
@@ -260,7 +260,7 @@ export const allFoodsInfo = [{
     },
     {
         id: 20,
-        name: 'Normal fried chicken',
+        name: 'Fried chicken',
         price: 5.50,
         category: 'Fried',
         orderQuantity: 214,

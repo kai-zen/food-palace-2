@@ -27,7 +27,7 @@ const SearchTabPanel = () => {
         variant="h1"
         color="primary"
         sx={{
-          mt: '21vh',
+          mt: '15vh',
           mb: 2,
           fontWeight: 'bold',
           fontFamily: 'Bad Script',

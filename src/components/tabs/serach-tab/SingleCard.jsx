@@ -51,19 +51,14 @@ export default function SearchSingleCard({ food }) {
         <Typography
           component="div"
           variant="h5"
-          sx={{ fontWeight: 'bold', textOverflow: 'ellipsis' }}
+          sx={{ fontWeight: 'bold', whiteSpace: 'nowrap' }}
         >
           {food.name}
         </Typography>
         <Typography variant="h6" color="text.secondary">
           {`${food.price} $`}
         </Typography>
-        <Rating
-          name="half-rating-read"
-          defaultValue={food.rate}
-          precision={0.5}
-          readOnly
-        />
+        <Rating defaultValue={food.rate} precision={0.5} readOnly />
         <div>
           <IconButton
             onClick={() => {

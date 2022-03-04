@@ -23,7 +23,7 @@ export default function SearchInput({ allFoods, setFilteredFoods, bgColor }) {
         alignItems: 'center',
         width: '97%',
         maxWidth: 460,
-        opacity: '0.7',
+        opacity: '0.75',
         '&:hover': {
           opacity: '1',
         },
