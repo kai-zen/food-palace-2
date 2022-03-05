@@ -121,14 +121,18 @@ const MyDrawerList = () => {
             <ListItemText primary="Favorites" />
           </ListItem>
         </RRDLink>
-        <ListItem button key="github">
-          <a href="/#">
+        <a
+          href="https://github.com/kai-zen/food-palace-2"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <ListItem button key="github">
             <ListItemIcon>
               <GitHub />
             </ListItemIcon>
-          </a>
-          <ListItemText primary="Source code" />
-        </ListItem>
+            <ListItemText primary="Source code" />
+          </ListItem>
+        </a>
         <ListItem
           button
           key="Logout"

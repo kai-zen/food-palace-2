@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material';
 import { amber, red } from '@mui/material/colors';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Routes, HashRouter as Router } from 'react-router-dom';
 import APComments from './components/admin-panel/comments/APComments';
 import APFoods from './components/admin-panel/foods/APFoods';
 import MainPanel from './components/admin-panel/MainPanel';

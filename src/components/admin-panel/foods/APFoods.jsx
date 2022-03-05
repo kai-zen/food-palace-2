@@ -77,8 +77,7 @@ const APFoods = () => {
                 <TableCell align="center">Food name</TableCell>
                 <TableCell align="center">Price</TableCell>
                 <TableCell align="center">Category</TableCell>
-                <TableCell align="center">Edit</TableCell>
-                <TableCell align="center">Delete</TableCell>
+                <TableCell align="center">Edit / Delete</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

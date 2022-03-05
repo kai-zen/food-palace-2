@@ -48,11 +48,9 @@ const APUsers = () => {
           <Table sx={{ maxWidth: '90%', m: 3 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell align="center">Firstname</TableCell>
-                <TableCell align="center">Lastname</TableCell>
+                <TableCell align="center">Name</TableCell>
                 <TableCell align="center">Email</TableCell>
-                <TableCell align="center">Admin</TableCell>
-                <TableCell align="center">Delete</TableCell>
+                <TableCell align="center">Admin / Delete</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

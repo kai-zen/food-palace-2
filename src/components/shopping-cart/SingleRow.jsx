@@ -64,8 +64,6 @@ const SingleRow = ({ food, calculateTotalPrice }) => {
         >
           <Favorite color={heartColor} />
         </IconButton>
-      </TableCell>
-      <TableCell align="center">
         <IconButton
           onClick={() => {
             dispatch(toggleToCart(food));

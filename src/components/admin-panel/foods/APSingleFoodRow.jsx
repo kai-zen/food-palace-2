@@ -37,8 +37,6 @@ const APSingleFoodRow = ({ food, setOpen, setEditingFood }) => {
         >
           <Edit color="warning" />
         </IconButton>
-      </TableCell>
-      <TableCell align="center">
         <IconButton
           onClick={() => {
             deleteColorToggler();

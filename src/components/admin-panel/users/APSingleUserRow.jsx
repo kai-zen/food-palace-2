@@ -37,9 +37,8 @@ const APSingleUserRow = ({ user }) => {
       }}
     >
       <TableCell component="th" scope="row" align="center">
-        {user.firstName}
+        {user.firstName}&nbsp;{user.lastName}
       </TableCell>
-      <TableCell align="center">{user.lastName}</TableCell>
       <TableCell align="center">{user.email}</TableCell>
       <TableCell align="center">
         <IconButton
@@ -50,8 +49,6 @@ const APSingleUserRow = ({ user }) => {
         >
           <Person color={adminColor} />
         </IconButton>
-      </TableCell>
-      <TableCell align="center">
         <IconButton
           onClick={() => {
             deleteColorToggler();

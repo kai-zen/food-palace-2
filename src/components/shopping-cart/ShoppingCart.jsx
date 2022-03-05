@@ -54,8 +54,7 @@ export default function MyShoppingCart() {
             <TableCell align="center">Food name</TableCell>
             <TableCell align="center">Price</TableCell>
             <TableCell align="center">Quantity</TableCell>
-            <TableCell align="center">Favorites</TableCell>
-            <TableCell align="center">Cart</TableCell>
+            <TableCell align="center">Fav / Cart</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
