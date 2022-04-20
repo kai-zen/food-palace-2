@@ -21,13 +21,15 @@ export default function SearchInput({ allFoods, setFilteredFoods, bgColor }) {
         p: '2px 4px',
         display: 'flex',
         alignItems: 'center',
-        width: '97%',
-        maxWidth: 460,
-        opacity: '0.75',
+        width: '90%',
+        minWidth: '320px',
+        maxWidth: '600px',
+        opacity: '0.9',
         '&:hover': {
           opacity: '1',
         },
         bgcolor: bgColor,
+        transition: '.3s',
       }}
     >
       <InputBase

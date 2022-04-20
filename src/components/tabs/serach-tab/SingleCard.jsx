@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { IconButton, Rating } from '@mui/material';
+import { IconButton } from '@mui/material';
 import { Favorite, Info, ShoppingCart } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -36,35 +36,38 @@ export default function SearchSingleCard({ food }) {
     <Card
       sx={{
         display: 'flex',
-        minHeight: '160px',
-        m: 3,
-        width: { sm: '80%', md: '75%' },
+        minHeight: '122px',
+        mt: 3,
+        width: '90%',
         maxWidth: '600px',
         minWidth: '320px',
         justifyContent: 'space-between',
         boxShadow: 5,
         overflowY: 'auto',
+        opacity: '.8',
+        '&:hover': {
+          opacity: '1',
+        },
+        transition: '.3s',
       }}
       key={food.id}
     >
       <CardContent sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography
           component="div"
-          variant="h5"
+          variant="h6"
           sx={{ fontWeight: 'bold', whiteSpace: 'nowrap' }}
         >
           {food.name}
         </Typography>
-        <Typography variant="h6" color="text.secondary">
-          {`${food.price} $`}
-        </Typography>
-        <Rating defaultValue={food.rate} precision={0.5} readOnly />
+        <Typography color="text.secondary">{`${food.price} $`}</Typography>
         <div>
           <IconButton
             onClick={() => {
               dispatch(toggleToCart(food));
               cartColorToggler();
             }}
+            size="small"
           >
             <ShoppingCart color={cartColor} />
           </IconButton>
@@ -73,17 +76,27 @@ export default function SearchSingleCard({ food }) {
               dispatch(toggleToFavorites(food));
               heartColorToggler();
             }}
+            size="small"
           >
             <Favorite color={heartColor} />
           </IconButton>
-          <IconButton onClick={() => navigate(`/single/${food.id}`)}>
+          <IconButton
+            onClick={() => navigate(`/single/${food.id}`)}
+            size="small"
+          >
             <Info />
           </IconButton>
         </div>
       </CardContent>
       <CardMedia
         component="img"
-        sx={{ width: 136, height: 136, margin: '11px' }}
+        sx={{
+          width: 90,
+          height: 90,
+          margin: '11px',
+          borderRadius: '50%',
+          border: '3px solid gold',
+        }}
         image={food.image}
         alt={food.name}
       />

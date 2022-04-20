@@ -44,36 +44,27 @@ const MyAppBar = ({ handleDrawerToggle }) => {
           edge="start"
           color="inherit"
           aria-label="menu"
-          sx={{ mr: 1, display: { xs: 'block', sm: 'none' } }}
+          sx={{ display: { xs: 'block', sm: 'none' } }}
           onClick={handleDrawerToggle}
         >
           <MenuIcon />
         </IconButton>
         <Typography
-          variant="h6"
           component="h3"
           sx={{ flexGrow: 1, fontWeight: 'bold', cursor: 'pointer' }}
           onClick={() => navigate('/')}
         >
-          Food Palace
+          Food Palace 2
         </Typography>
         <RRDLink to="/shopping-cart">
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-          >
+          <IconButton aria-label="show 4 new mails" color="inherit">
             <Badge badgeContent={cart.length} color="error">
               <ShoppingCart />
             </Badge>
           </IconButton>
         </RRDLink>
         <RRDLink to="/favorites">
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-          >
+          <IconButton aria-label="show 4 new mails" color="inherit">
             <Badge badgeContent={favorites.length} color="error">
               <Favorite />
             </Badge>
@@ -82,7 +73,6 @@ const MyAppBar = ({ handleDrawerToggle }) => {
         {loggedInUser[0] ? (
           <>
             <IconButton
-              size="large"
               aria-label="show 4 new mails"
               color="inherit"
               onClick={() => {

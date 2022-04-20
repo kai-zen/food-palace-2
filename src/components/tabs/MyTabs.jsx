@@ -64,7 +64,7 @@ const MyTabs = ({ activeTab }) => {
             sx={{ height: 50 }}
             TabIndicatorProps={{
               sx: {
-                height: '8px',
+                height: '5px',
               },
             }}
             textColor="inherit"
