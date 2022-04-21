@@ -1,0 +1,18 @@
+{
+    "name": "food palace 2 react and redux version",
+    "short_name": "food palace 2",
+    "theme_color": "#f3db21",
+    "background_color": "#e5ebef",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [{
+        "src": "/images/logo.png",
+        "type": "image/png",
+        "sizes": "351x351"
+    }, {
+        "src": "favicon.ico",
+        "type": "image/x-icon",
+        "sizes": "50x50"
+    }]
+}

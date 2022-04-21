@@ -15,6 +15,11 @@ export default function SingleComment({ comment }) {
         minHeight: '170px',
         overflowY: 'auto',
         width: '90%',
+        '&::-webkit-scrollbar': {
+          display: 'none',
+        },
+        overflowStyle: 'none',
+        scrollbarWidth: 'none',
       }}
     >
       <CardContent sx={{ width: '100%' }}>

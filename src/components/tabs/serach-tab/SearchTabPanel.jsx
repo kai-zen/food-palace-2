@@ -1,7 +1,7 @@
 import { Casino, MonetizationOn, Stars } from '@mui/icons-material';
 import { IconButton, Typography } from '@mui/material';
 import { amber } from '@mui/material/colors';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import SearchInput from './SearchInput';
 import SearchSingleCard from './SingleCard';
@@ -11,7 +11,9 @@ const SearchTabPanel = () => {
   allFoods = allFoods.filter((food) => {
     return !food.deleted;
   });
-  const [filteredFoods, setFilteredFoods] = useState(allFoods);
+  const [filteredFoods, setFilteredFoods] = useState(
+    allFoods.sort(() => 0.5 - Math.random())
+  );
   const [sortBy, setSortBy] = useState(2);
 
   const whatToRender = () => {
@@ -22,11 +24,6 @@ const SearchTabPanel = () => {
       });
     }
   };
-
-  useEffect(() => {
-    const shuffledArray = [...filteredFoods].sort(() => 0.5 - Math.random());
-    setFilteredFoods(shuffledArray);
-  }, []);
 
   return (
     <>
